@@ -8,7 +8,7 @@ export const Home = () => (
 
 {/* <!-- Hero 2 - Bootstrap Brain Component --> */}
   <section id="scrollspyHero" className="wave-bg-blue py-5 py-xl-8 py-xxl-10">
-    <div className="container overflow-hidden">
+    <div className="container overflow-hidden jumbotron">
       <div className="row gy-5 gy-lg-0 align-items-lg-center justify-content-lg-between">
         <div className="col-12 col-lg-6 order-1 order-lg-0">
           <h1 className="display-3 fw-bolder mb-3">We provide easy <br></br><mark className="wave-highlight wave-highlight-blue"><span className="wave-font-hw display-2 text-accent fw-normal">solutions</span></mark> for startups at affordable rates.</h1>
@@ -17,9 +17,6 @@ export const Home = () => (
             <button type="button" className="btn btn-primary btn-2xl rounded-pill px-4 gap-3">Free Consultation</button>
             <button type="button" className="btn btn-outline-primaryx btn-outline-accent btn-2xl rounded-pill px-4">Buy Credits</button>
           </div>
-        </div>
-        <div className="col-12 col-lg-5 text-center">
-          <img className="img-fluid mask-position-center-center mask-repeat-no-repeat mask-size-auto" loading="lazy" src="https://i.imgur.com/tugOgAr.jpg" alt=""></img>
         </div>
       </div>
     </div>
@@ -96,30 +93,11 @@ export const Home = () => (
               </svg>
             </div>
             <h4 className="mb-3">Content Marketing</h4>
-            <p className="mb-3 text-secondary">Vestibulum bibendum, lorem a blandit lacinia, nisi velit posuere nisl, vel placerat magna mauris mollis maximus est.</p>
-            <a href="#!" className="fw-bold text-decoration-none link-primary">
-              Learn More
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-right-short" viewBox="0 0 16 16">
-                <path fillRule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
-              </svg>
-            </a>
+            <p className="mb-3 text-secondary">Vestibulum bibendum, lorem a blandit lacinia, nisi velit posuere nisl, vel placerat magna mauris mollis maximus est.</p>            
           </div>
         </div>
       </div>
-    </section>
-
-    {/* <!-- Call To Action 1 - Bootstrap Brain Component --> */}
-    <section className="px-2 py-8 py-xxl-16 background-position-center background-size-cover background-attachment-fixed bsb-overlay">
-      <div className="container">
-        <div className="row">
-          <div className="col-12 col-md-9 col-lg-8 col-xl-8 col-xxl-7">
-            <h3 className="fs-5 mb-3 text-white text-uppercase"><mark className="text-white wave-highlight">Unlock Fresh Prospects</mark></h3>
-            <h2 className="display-3 text-white fw-bolder mb-4 pe-xl-5">We are a design agency studio delivering custom creative & unique websites.</h2>
-            <a href="#!" className="btn btn-accent btn-3xl rounded mb-0 text-nowrap">Join Us</a>
-          </div>
-        </div>
-      </div>
-    </section>
+    </section>   
 
     {/* <!-- Section - Portfolio -->
     <!-- Masonry 1 - Bootstrap Brain Component --> */}

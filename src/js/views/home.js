@@ -1,6 +1,7 @@
 import React from "react";
 import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
+import landscape1 from "../assets/img/portfolio/project-landscape-1.jpg";
 
 export const Home = () => (
 	<div className="text-center mt-5">
@@ -18,7 +19,7 @@ export const Home = () => (
           </div>
         </div>
         <div className="col-12 col-lg-5 text-center">
-          <img className="img-fluid mask-position-center-center mask-repeat-no-repeat mask-size-auto" loading="lazy" src="./assets/img/hero/hero-home.jpg" alt=""></img>
+          <img className="img-fluid mask-position-center-center mask-repeat-no-repeat mask-size-auto" loading="lazy" src="https://i.imgur.com/tugOgAr.jpg" alt=""></img>
         </div>
       </div>
     </div>
@@ -136,7 +137,7 @@ export const Home = () => (
           <div className="col-12 col-md-4 bsb-project-2-item">
             <figure className="rounded rounded-3 overflow-hidden bsb-hover-overlay m-0">
               <a href="#!">
-                <img className="img-fluid bsb-scale-up bsb-hover-scale" loading="lazy" src="./assets/img/portfolio/project-landscape-1.jpg" alt=""></img>
+                <img className="img-fluid bsb-scale-up bsb-hover-scale" loading="lazy" src={landscape1} alt=""></img>
               </a>
               <figcaption>
                 <h3 className="text-white bsb-hover-fadeInLeft">Canvas Lover</h3>

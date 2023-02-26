@@ -5,27 +5,46 @@ import landscape1 from "../assets/img/portfolio/project-landscape-1.jpg";
 import { Player } from '@lottiefiles/react-lottie-player';
 
 export const Home = () => (
-  <div className="text-center mt-5">
-
-    {/* <!-- Hero 2 - Bootstrap Brain Component --> */}
-    <section id="scrollspyHero" className="wave-bg-blue py-5 py-xl-8 py-xxl-10">
-      <div className="container overflow-hidden jumbotron">
-        <div className="row gy-5 gy-lg-0 align-items-lg-center justify-content-lg-between">
-          <div className="col-12 col-lg-6 order-1 order-lg-0">
-            <h1 className="display-3 fw-bolder mb-3">We provide easy <br></br><mark className="wave-highlight wave-highlight-blue"><span className="wave-font-hw display-2 text-accent fw-normal">solutions</span></mark> for startups at affordable rates.</h1>
-            <p className="fs-4 mb-5">Our methods are straight, comfortable, and established to ensure evolution and acceleration.</p>
-            <div className="d-grid gap-2 d-sm-flex">
-              <button type="button" className="btn btn-primary btn-2xl rounded-pill px-4 gap-3">Free Consultation</button>
-              <button type="button" className="btn btn-outline-primaryx btn-outline-accent btn-2xl rounded-pill px-4">Buy Credits</button>
-            </div>
+  <div className="text-center">
+    {/* <!-- Hero 2 - Bootstrap Brain Component --> Otto Jumbotron */}
+    <section id="scrollspyHero" className="wave-bg-blue py-5 py-xl-8 py-xxl-10 jumbotron">
+      <div className="container overflow-hidden">
+        <div className="row align-items-center">
+          <div className="">
+            <h1 className="mb-3 text-light">
+              La mejor opción de comida rápida del mercado
+            </h1>
+            <button className="learn-more foodButton">
+              <span className="circle" aria-hidden="true">
+              <span className="icon arrow"></span>
+              </span>
+              <span className="button-text">Pedir comida</span>
+            </button>
+            {/* <p className="fs-4 mb-5">Our methods are straight, comfortable, and established to ensure evolution and acceleration.</p> */}            
           </div>
         </div>
       </div>
     </section>
 
-
     {/* <!-- Main --> */}
     <main id="main">
+      {/* <!-- Section - Services -->
+    <!-- Service 3 - Bootstrap Brain Component --> */}
+        <div className="container mb-5 mb-md-6 mb-xl-10">
+          <div className="row justify-content-md-center">
+            <div className="col-12 col-md-10 col-lg-9 col-xl-8 col-xxl-7 text-center">
+              <h2 className="display-3 fw-bolder mb-4">
+                You will get the perfect{" "}
+                <mark className="wave-highlight wave-highlight-yellow">
+                  <span className="wave-font-hw display-1 text-accent fw-normal">
+                    resolutions
+                  </span>
+                </mark>{" "}
+                with our proficient services.
+              </h2>
+            </div>
+          </div>
+        </div>
 
       {/* <!-- Section - Services -->
     <!-- Service 3 - Bootstrap Brain Component --> */}

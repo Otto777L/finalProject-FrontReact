@@ -1,3 +1,31 @@
 /* 
     General Styles
 */
+
+/* Scrollbar lateral principal */
+html {
+    --scrollbarBG: #EBA83A;
+    --thumbBG: #BB371A;
+  }
+  body::-webkit-scrollbar {
+    width: 20px;
+  }
+  body {
+    scrollbar-width: auto;
+    scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+  }
+  body::-webkit-scrollbar-track {
+    background: var(--scrollbarBG);
+  }
+  body::-webkit-scrollbar-thumb {
+    background-color: var(--thumbBG) ;
+    border-radius: 10px;
+    border: 2.5px solid var(--scrollbarBG);
+  }
+
+/* Scrollbar horizontal oculto para el overflow*/
+  ::-webkit-scrollbar {
+    height: 8px;
+    overflow: hidden;
+    width: 8px;
+}

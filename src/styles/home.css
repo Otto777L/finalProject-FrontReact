@@ -1,7 +1,9 @@
 
 
 .jumbotron {
-    background-image: url("https://i.imgur.com/VJvx1dF.jpg");
+    background-image: url("https://us.123rf.com/450wm/klaramartinb/klaramartinb2005/klaramartinb200500107/klaramartinb200500107.jpg?ver=6");
+    background-repeat: no-repeat;
+    background-size: cover;
     background-color: #cccccc;
   }
 
@@ -17,6 +19,7 @@
     padding: 0;
     font-size: inherit;
     font-family: inherit;
+    color: #fff;
    }
    
    .foodButton.learn-more {
@@ -31,7 +34,7 @@
     margin: 0;
     width: 3rem;
     height: 3rem;
-    background: #282936;
+    background: #eb3211;
     border-radius: 1.625rem;
    }
    
@@ -73,7 +76,7 @@
     bottom: 0;
     padding: 0.75rem 0;
     margin: 0 0 0 1.85rem;
-    color: #282936;
+    color: #ffffff;
     font-weight: 700;
     line-height: 1.6;
     text-align: center;

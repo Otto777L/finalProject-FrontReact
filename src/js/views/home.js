@@ -86,118 +86,50 @@ export const Home = () => (
       </section>
 
       {/* <!-- Section - Portfolio -->
-    <!-- Masonry 1 - Bootstrap Brain Component --> */}
-      <section id="scrollspyPortfolio" className="py-5 py-xl-8 py-xxl-16">
-        <div className="container mb-5 mb-md-6 mb-xl-10">
-          <div className="row justify-content-md-center">
-            <div className="col-12 col-md-10 col-lg-9 col-xl-8 col-xxl-7 text-center">
-              <h2 className="display-3 fw-bolder mb-4">Meet our portfolio to <br></br><mark className="wave-highlight wave-highlight-yellow"><span className="wave-font-hw display-1 text-accent fw-normal">kickstart</span></mark> your success.</h2>
-            </div>
+    <!-- Img Landing Page Maria Paola Galvis--> */}
+       <section id="about" class="about-section-padding">
+        <div class="container">
+          <div class="row">
+              <div class="p-4 col-lg-7 col-md-12 col-12">
+                <div class="about-img">
+                  <img src="https://images.pexels.com/photos/1435903/pexels-photo-1435903.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="" class="img-fluid"/>
+                </div>
+              </div>
+              <div class=" p-5 col-lg-5 col-md-5 col-12 ps-lg-5 mt-md-5">
+                <div class="about-text">
+                  <h2><strong> Disfruta de una ¡Pizzetta Especial!</strong></h2>
+                  <h4> ¿Has probado alguna de nuestras pizzettas? </h4>
+                  <p> Si aún no lo has hecho, nuestra pizzetta Cucumber es una buena opción para degustar.
+                      Es una delicia que espera sorprender tu paladar.
+                  </p>
+                  <p><strong>¡Te va a encantar!</strong></p>
+                </div>
+              </div>
           </div>
-        </div>
+        </div>  
+       </section>
 
-        <div className="container overflow-hidden">
-          <div className="row gy-2 g-md-2 g-xl-3 bsb-project-2-grid">
-            <div className="col-12 col-md-4 bsb-project-2-item">
-              <figure className="rounded rounded-3 overflow-hidden bsb-hover-overlay m-0">
-                <a href="#!">
-                  <img className="img-fluid bsb-scale-up bsb-hover-scale" loading="lazy" src={landscape1} alt=""></img>
-                </a>
-                <figcaption>
-                  <h3 className="text-white bsb-hover-fadeInLeft">Canvas Lover</h3>
-                  <div className="text-white bsb-hover-fadeInRight">Photography</div>
-                </figcaption>
-              </figure>
-            </div>
-
-            <div className="col-12 col-md-4 bsb-project-2-item">
-              <figure className="rounded rounded-3 overflow-hidden bsb-hover-overlay m-0">
-                <a href="#!">
-                  <img className="img-fluid bsb-scale bsb-hover-scale-up" loading="lazy" src="./assets/img/portfolio/project-portrait-1.jpg" alt=""></img>
-                </a>
-                <figcaption>
-                  <h3 className="text-white bsb-hover-fadeInUp">Red Lava</h3>
-                  <div className="text-white bsb-hover-fadeInDown">Nature</div>
-                </figcaption>
-              </figure>
-            </div>
-
-            <div className="col-12 col-md-4 bsb-project-2-item">
-              <figure className="rounded rounded-3 overflow-hidden bsb-hover-overlay m-0">
-                <a href="#!">
-                  <img className="img-fluid bsb-scale-up bsb-hover-scale" loading="lazy" src="./assets/img/portfolio/project-landscape-2.jpg" alt=""></img>
-                </a>
-                <figcaption>
-                  <h3 className="text-white bsb-hover-fadeInLeft">Jungle Book</h3>
-                  <div className="text-white bsb-hover-fadeInRight">Adventure</div>
-                </figcaption>
-              </figure>
-            </div>
-
-            <div className="col-12 col-md-4 bsb-project-2-item">
-              <figure className="rounded rounded-3 overflow-hidden bsb-hover-overlay m-0">
-                <a href="#!">
-                  <img className="img-fluid bsb-scale bsb-hover-scale-up" loading="lazy" src="./assets/img/portfolio/project-portrait-2.jpg" alt=""></img>
-                </a>
-                <figcaption>
-                  <h3 className="text-white bsb-hover-fadeInUp">Wavy Road</h3>
-                  <div className="text-white bsb-hover-fadeInDown">Adventure</div>
-                </figcaption>
-              </figure>
-            </div>
-
-            <div className="col-12 col-md-4 bsb-project-2-item">
-              <figure className="rounded rounded-3 overflow-hidden bsb-hover-overlay m-0">
-                <a href="#!">
-                  <img className="img-fluid bsb-scale bsb-hover-scale-up" loading="lazy" src="./assets/img/portfolio/project-portrait-3.jpg" alt=""></img>
-                </a>
-                <figcaption>
-                  <h3 className="text-white bsb-hover-fadeInUp">Golden Leaves</h3>
-                  <div className="text-white bsb-hover-fadeInDown">Photography</div>
-                </figcaption>
-              </figure>
-            </div>
-
-            <div className="col-12 col-md-4 bsb-project-2-item">
-              <figure className="rounded rounded-3 overflow-hidden bsb-hover-overlay m-0">
-                <a href="#!">
-                  <img className="img-fluid bsb-scale bsb-hover-scale-up" loading="lazy" src="./assets/img/portfolio/project-portrait-4.jpg" alt=""></img>
-                </a>
-                <figcaption>
-                  <h3 className="text-white bsb-hover-fadeInUp">Minimal Notions</h3>
-                  <div className="text-white bsb-hover-fadeInDown">Design</div>
-                </figcaption>
-              </figure>
-            </div>
-
-            <div className="col-12 col-md-4 bsb-project-2-item">
-              <figure className="rounded rounded-3 overflow-hidden bsb-hover-overlay m-0">
-                <a href="#!">
-                  <img className="img-fluid bsb-scale-up bsb-hover-scale" loading="lazy" src="./assets/img/portfolio/project-landscape-3.jpg" alt=""></img>
-                </a>
-                <figcaption>
-                  <h3 className="text-white bsb-hover-fadeInLeft">Bright Winks</h3>
-                  <div className="text-white bsb-hover-fadeInRight">Design</div>
-                </figcaption>
-              </figure>
-            </div>
-
-            <div className="col-12 col-md-4 bsb-project-2-item">
-              <figure className="rounded rounded-3 overflow-hidden bsb-hover-overlay m-0">
-                <a href="#!">
-                  <img className="img-fluid bsb-scale-up bsb-hover-scale" loading="lazy" src="./assets/img/portfolio/project-landscape-4.jpg" alt=""></img>
-                </a>
-                <figcaption>
-                  <h3 className="text-white bsb-hover-fadeInLeft">Innovative Day</h3>
-                  <div className="text-white bsb-hover-fadeInRight">Photography</div>
-                </figcaption>
-              </figure>
-            </div>
+       <section id="about" class="about-section-padding">
+        <div class="container">
+          <div class="row">
+          <div class=" p-5 col-lg-5 col-md-5 col-12 ps-lg-5 mt-md-5">
+                <div class="about-text">
+                  <h2><strong> Conéctate con nosotros ¡Vive una experiencia de calidad! </strong></h2>
+                  <p> Nuestras distintas propuestas esperan por ti, son ideales para darle un toque de sabor a los buenos momentos.
+                    <strong> ¡Vive una experiencia única con propuestas y sorpresas magníficas!</strong>
+                  </p>
+                  <p><strong>¡Te lo mereces!</strong></p>
+                  <a href="#" class="btn btn-danger"> Más info </a>
+                </div>
+              </div>
+              <div class="p-4 col-lg-7 col-md-12 col-12">
+                <div class="about-img">
+                  <img src="https://img.cdn4dd.com/cdn-cgi/image/fit=contain,width=1024,format=auto,quality=50/https://cdn.doordash.com/media/consumer/home/landing/new/all_in_one.jpg" alt="" class="img-fluid"/>
+                </div>
+              </div>
           </div>
-        </div>
-      </section>
-
-
+        </div>  
+       </section>
     </main>
   </div>
 );

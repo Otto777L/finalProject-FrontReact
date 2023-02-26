@@ -39,7 +39,7 @@ export const Navbar = () => {
                 <a className="nav-link" href="#scrollspyPricing" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasNavbar">Pricing</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#scrollspyBlog" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasNavbar">Blog</a>
+                <Link to="/catalog">Catalogo</Link>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#scrollspyContact" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasNavbar">Contact</a>

@@ -28,23 +28,6 @@ export const Home = () => (
 
     {/* <!-- Main --> */}
     <main id="main">
-      {/* <!-- Section - Services -->
-    <!-- Service 3 - Bootstrap Brain Component --> */}
-        <div className="container mb-5 mb-md-6 mb-xl-10">
-          <div className="row justify-content-md-center">
-            <div className="col-12 col-md-10 col-lg-9 col-xl-8 col-xxl-7 text-center">
-              <h2 className="display-3 fw-bolder mb-4">
-                You will get the perfect{" "}
-                <mark className="wave-highlight wave-highlight-yellow">
-                  <span className="wave-font-hw display-1 text-accent fw-normal">
-                    resolutions
-                  </span>
-                </mark>{" "}
-                with our proficient services.
-              </h2>
-            </div>
-          </div>
-        </div>
 
       {/* <!-- Section - Services -->
     <!-- Service 3 - Bootstrap Brain Component --> */}
@@ -106,12 +89,12 @@ export const Home = () => (
 
       {/* <!-- Section - Portfolio -->
     <!-- Img Landing Page Maria Paola Galvis--> */}
-       <section id="about" class="about-section-padding">
+       <section id="about_1" class="about-section-padding_1">
         <div class="container">
           <div class="row">
               <div class="p-4 col-lg-7 col-md-12 col-12">
                 <div class="about-img">
-                  <img src="https://images.pexels.com/photos/1435903/pexels-photo-1435903.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="" class="img-fluid"/>
+                  <img src="https://images.pexels.com/photos/1435903/pexels-photo-1435903.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="" class="img-fluid" style={{borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%"}}/>
                 </div>
               </div>
               <div class=" p-5 col-lg-5 col-md-5 col-12 ps-lg-5 mt-md-5">
@@ -128,7 +111,7 @@ export const Home = () => (
         </div>  
        </section>
 
-       <section id="about" class="about-section-padding">
+       <section id="about_2" class="about-section-padding_2">
         <div class="container">
           <div class="row">
           <div class=" p-5 col-lg-5 col-md-5 col-12 ps-lg-5 mt-md-5">
@@ -138,17 +121,45 @@ export const Home = () => (
                     <strong> ¡Vive una experiencia única con propuestas y sorpresas magníficas!</strong>
                   </p>
                   <p><strong>¡Te lo mereces!</strong></p>
-                  <a href="#" class="btn btn-danger"> Más info </a>
+                  <button className="learn-more foodButton">
+                    <span className="circle" aria-hidden="true">
+                      <span className="icon arrow"></span>
+                    </span>
+                    <span className="button-text text-dark"> Más Info </span>
+                  </button>
                 </div>
               </div>
               <div class="p-4 col-lg-7 col-md-12 col-12">
                 <div class="about-img">
-                  <img src="https://img.cdn4dd.com/cdn-cgi/image/fit=contain,width=1024,format=auto,quality=50/https://cdn.doordash.com/media/consumer/home/landing/new/all_in_one.jpg" alt="" class="img-fluid"/>
+                  <img src="https://img.cdn4dd.com/cdn-cgi/image/fit=contain,width=1024,format=auto,quality=50/https://cdn.doordash.com/media/consumer/home/landing/new/all_in_one.jpg" alt="" class="img-fluid" style={{borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%"}}/>
                 </div>
               </div>
           </div>
         </div>  
        </section>
+
+       <section id="about_3" class="about-section-padding_3">
+        <div class="container">
+          <div class="row">
+              <div class="p-4 col-lg-7 col-md-12 col-12">
+                <div class="about-img">
+                  <img src="https://images.pexels.com/photos/1893555/pexels-photo-1893555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="" class="img-fluid" style={{borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%"}}/>
+                </div>
+              </div>
+              <div class=" p-5 col-lg-5 col-md-5 col-12 ps-lg-5 mt-md-5">
+                <div class="about-text">
+                  <h2><strong> Disfruta de una ¡Pizzetta Especial!</strong></h2>
+                  <h4> ¿Has probado alguna de nuestras pizzettas? </h4>
+                  <p> Si aún no lo has hecho, nuestra pizzetta Cucumber es una buena opción para degustar.
+                      Es una delicia que espera sorprender tu paladar.
+                  </p>
+                  <p><strong>¡Te va a encantar!</strong></p>
+                </div>
+              </div>
+          </div>
+        </div>  
+       </section>
+
     </main>
   </div>
 );

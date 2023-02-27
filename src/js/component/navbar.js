@@ -13,7 +13,9 @@ const handleLogin = () => {
 	return (
 <nav className="navbar navbar-expand-lg bg-light">
   <div className="container-fluid">
-    <img src="https://i.imgur.com/Hewd1Jo.png" alt="Bootstrap" width="35" height="50"></img>
+    <Link to={`/`}>
+      <img src="https://i.imgur.com/Hewd1Jo.png" alt="Bootstrap" width="35" height="50"/>
+    </Link>
     {/* <a className="navbar-brand" href="#"></a> */}
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
@@ -33,7 +35,7 @@ const handleLogin = () => {
           <ul className="dropdown-menu">
             <li><a className="dropdown-item" href="#">Dir 1</a></li>
             <li><a className="dropdown-item" href="#">Dir 2</a></li>
-            <li><hr className="dropdown-divider"></hr></li>
+            <li><hr className="dropdown-divider"/></li>
             <li><a className="dropdown-item" href="#"> Dir Predeterminada</a></li>
           </ul>
         </li>

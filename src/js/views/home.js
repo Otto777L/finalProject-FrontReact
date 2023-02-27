@@ -27,24 +27,7 @@ export const Home = () => (
     </section>
 
     {/* <!-- Main --> */}
-    <main id="main">
-      {/* <!-- Section - Services -->
-    <!-- Service 3 - Bootstrap Brain Component --> */}
-        <div className="container mb-5 mb-md-6 mb-xl-10">
-          <div className="row justify-content-md-center">
-            <div className="col-12 col-md-10 col-lg-9 col-xl-8 col-xxl-7 text-center">
-              <h2 className="display-3 fw-bolder mb-4">
-                You will get the perfect{" "}
-                <mark className="wave-highlight wave-highlight-yellow">
-                  <span className="wave-font-hw display-1 text-accent fw-normal">
-                    resolutions
-                  </span>
-                </mark>{" "}
-                with our proficient services.
-              </h2>
-            </div>
-          </div>
-        </div>
+    <main id="main">    
 
       {/* <!-- Section - Services -->
     <!-- Service 3 - Bootstrap Brain Component --> */}

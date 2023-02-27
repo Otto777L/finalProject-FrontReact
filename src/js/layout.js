@@ -10,6 +10,7 @@ import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Catalog } from "./views/catalog";
+import { LogReg } from "./views/login_register";
 
 //create your first component
 const Layout = () => {
@@ -27,6 +28,7 @@ const Layout = () => {
 						<Route path="/demo" element={<Demo />} />
 						<Route path="/catalog" element={<Catalog />} />
 						<Route path="/single/:theid" element={<Single />} />
+						<Route path="/login_register" element={<LogReg/>}/>
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
 					<Footer />

@@ -4,8 +4,8 @@
 
 /* Scrollbar lateral principal */
 html {
-    --scrollbarBG: #EBA83A;
-    --thumbBG: #BB371A;
+    --scrollbarBG: #FFF8D9;
+    --thumbBG: #D5DBB3;
   }
   body::-webkit-scrollbar {
     width: 20px;

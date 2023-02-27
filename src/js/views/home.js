@@ -3,6 +3,7 @@ import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 import landscape1 from "../assets/img/portfolio/project-landscape-1.jpg";
 import { Player } from '@lottiefiles/react-lottie-player';
+import { Link } from "react-router-dom";
 
 export const Home = () => (
   <div className="text-center">
@@ -14,12 +15,12 @@ export const Home = () => (
             <h1 className="mb-3 text-light">
               La mejor opción de comida rápida del mercado
             </h1>
-            <button className="learn-more foodButton">
+            <Link className="learn-more foodButton"  to="/catalog">            
               <span className="circle" aria-hidden="true">
               <span className="icon arrow"></span>
               </span>
               <span className="button-text">Pedir comida</span>
-            </button>
+            </Link>
             {/* <p className="fs-4 mb-5">Our methods are straight, comfortable, and established to ensure evolution and acceleration.</p> */}            
           </div>
         </div>
@@ -27,7 +28,7 @@ export const Home = () => (
     </section>
 
     {/* <!-- Main --> */}
-    <main id="main">
+    <main id="main">    
 
       {/* <!-- Section - Services -->
     <!-- Service 3 - Bootstrap Brain Component --> */}

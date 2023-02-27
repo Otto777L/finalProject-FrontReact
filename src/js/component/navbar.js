@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/navbar.css";
 
 export const Navbar = () => {
+
+  const [isLogged, setIsLogged] = useState(false);
+
+const handleLogin = () => {
+  setIsLogged(!isLogged);  
+};
+
 	return (
-		<nav className="navbar navbar-expand-lg bg-light">
+<nav className="navbar navbar-expand-lg bg-light">
   <div className="container-fluid">
     <img src="https://i.imgur.com/Hewd1Jo.png" alt="Bootstrap" width="35" height="50"></img>
     {/* <a className="navbar-brand" href="#"></a> */}
@@ -31,10 +38,17 @@ export const Navbar = () => {
           </ul>
         </li>
       </ul>
-      <form className="d-flex" role="search">
+      {!isLogged ? 
+      <div className="d-flex" role="search">        
+        <button className="shopButton me-2" onClick={handleLogin}>Iniciar Sesión</button>
+        <button className="shopButton"  onClick={handleLogin}>Registrarse</button>
+      </div> : 
+      <div className="d-flex" role="search">
         <input className="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"></input>
-        <button className="shopButton" type="submit"><img src="https://i.imgur.com/Kvc0Yzc.png" alt="Bootstrap" width="25" height="20"></img></button>
-      </form>
+        <button className="shopButton me-2"><img src="https://i.imgur.com/Kvc0Yzc.png" alt="Bootstrap" width="25" height="20"></img></button>
+        <button className="shopButton" onClick={handleLogin}>Cerrar Sesión</button>
+      </div> }
+      
     </div>
   </div>
 </nav>

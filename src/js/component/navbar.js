@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/navbar.css";
+import { LogReg } from "../views/login_register";
 
 export const Navbar = () => {
 
@@ -42,7 +43,7 @@ const handleLogin = () => {
       </ul>
       {!isLogged ? 
       <div className="d-flex" role="search">        
-        <button className="shopButton me-2" onClick={handleLogin}>Iniciar Sesión</button>
+        < LogReg onClick={handleLogin} />
         <button className="shopButton"  onClick={handleLogin}>Registrarse</button>
       </div> : 
       <div className="d-flex" role="search">

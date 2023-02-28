@@ -90,16 +90,16 @@ export const Home = () => (
 
       {/* <!-- Section - Portfolio -->
     <!-- Img Landing Page Maria Paola Galvis--> */}
-       <section id="about_1" class="about-section-padding_1">
-        <div class="container">
-          <div class="row">
-              <div class="p-4 col-lg-7 col-md-12 col-12">
-                <div class="about-img">
-                  <img src="https://images.pexels.com/photos/1435903/pexels-photo-1435903.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="" class="img-fluid" style={{borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%"}}/>
+       <section id="about_1" className="about-section-padding_1">
+        <div className="container">
+          <div className="row">
+              <div className="p-4 col-lg-7 col-md-12 col-12">
+                <div className="about-img">
+                  <img src="https://images.pexels.com/photos/1435903/pexels-photo-1435903.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="" className="img-fluid" style={{borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%"}}/>
                 </div>
               </div>
-              <div class=" p-5 col-lg-5 col-md-5 col-12 ps-lg-5 mt-md-5">
-                <div class="about-text">
+              <div className=" p-5 col-lg-5 col-md-5 col-12 ps-lg-5 mt-md-5">
+                <div className="about-text">
                   <h2><strong> Disfruta de una ¡Pizzetta Especial!</strong></h2>
                   <h4> ¿Has probado alguna de nuestras pizzettas? </h4>
                   <p> Si aún no lo has hecho, nuestra pizzetta Cucumber es una buena opción para degustar.
@@ -112,11 +112,11 @@ export const Home = () => (
         </div>  
        </section>
 
-       <section id="about_2" class="about-section-padding_2">
-        <div class="container">
-          <div class="row">
-          <div class=" p-5 col-lg-5 col-md-5 col-12 ps-lg-5 mt-md-5">
-                <div class="about-text">
+       <section id="about_2" className="about-section-padding_2">
+        <div className="container">
+          <div className="row">
+          <div className=" p-5 col-lg-5 col-md-5 col-12 ps-lg-5 mt-md-5">
+                <div className="about-text">
                   <h2><strong> Conéctate con nosotros ¡Vive una experiencia de calidad! </strong></h2>
                   <p> Nuestras distintas propuestas esperan por ti, son ideales para darle un toque de sabor a los buenos momentos.
                     <strong> ¡Vive una experiencia única con propuestas y sorpresas magníficas!</strong>
@@ -130,25 +130,25 @@ export const Home = () => (
                   </button>
                 </div>
               </div>
-              <div class="p-4 col-lg-7 col-md-12 col-12">
-                <div class="about-img">
-                  <img src="https://img.cdn4dd.com/cdn-cgi/image/fit=contain,width=1024,format=auto,quality=50/https://cdn.doordash.com/media/consumer/home/landing/new/all_in_one.jpg" alt="" class="img-fluid" style={{borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%"}}/>
+              <div className="p-4 col-lg-7 col-md-12 col-12">
+                <div className="about-img">
+                  <img src="https://img.cdn4dd.com/cdn-cgi/image/fit=contain,width=1024,format=auto,quality=50/https://cdn.doordash.com/media/consumer/home/landing/new/all_in_one.jpg" alt="" className="img-fluid" style={{borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%"}}/>
                 </div>
               </div>
           </div>
         </div>  
        </section>
 
-       <section id="about_3" class="about-section-padding_3">
-        <div class="container">
-          <div class="row">
-              <div class="p-4 col-lg-7 col-md-12 col-12">
-                <div class="about-img">
-                  <img src="https://images.pexels.com/photos/1893555/pexels-photo-1893555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="" class="img-fluid" style={{borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%"}}/>
+       <section id="about_3" className="about-section-padding_3">
+        <div className="container">
+          <div className="row">
+              <div className="p-4 col-lg-7 col-md-12 col-12">
+                <div className="about-img">
+                  <img src="https://images.pexels.com/photos/1893555/pexels-photo-1893555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="" className="img-fluid" style={{borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%"}}/>
                 </div>
               </div>
-              <div class=" p-5 col-lg-5 col-md-5 col-12 ps-lg-5 mt-md-5">
-                <div class="about-text">
+              <div className=" p-5 col-lg-5 col-md-5 col-12 ps-lg-5 mt-md-5">
+                <div className="about-text">
                   <h2><strong> Disfruta de una ¡Pizzetta Especial!</strong></h2>
                   <h4> ¿Has probado alguna de nuestras pizzettas? </h4>
                   <p> Si aún no lo has hecho, nuestra pizzetta Cucumber es una buena opción para degustar.

@@ -19,7 +19,7 @@ export const Home = () => (
               <span className="circle" aria-hidden="true">
               <span className="icon arrow"></span>
               </span>
-              <span className="button-text">Pedir comida</span>
+              <span className="button-text text-light">Pedir comida</span>
             </Link>
             {/* <p className="fs-4 mb-5">Our methods are straight, comfortable, and established to ensure evolution and acceleration.</p> */}            
           </div>
@@ -126,7 +126,7 @@ export const Home = () => (
                     <span className="circle" aria-hidden="true">
                       <span className="icon arrow"></span>
                     </span>
-                    <span className="button-text text-dark"> Más Info </span>
+                    <span className="button-text"> Más Info </span>
                   </button>
                 </div>
               </div>

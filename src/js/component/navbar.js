@@ -44,7 +44,7 @@ const handleLogin = () => {
       {!isLogged ? 
       <div className="d-flex" role="search">        
         < LogReg onClick={handleLogin} />
-        <button className="shopButton"  onClick={handleLogin}>Registrarse</button>
+        {/* <button className="shopButton"  onClick={handleLogin}>Registrarse</button> */}
       </div> : 
       <div className="d-flex" role="search">
         <input className="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"></input>

@@ -12,7 +12,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			userList: [
+				{
+					username: 'admin1@gmail.com',
+					password: 'admin1@1',
+				},
+				{
+					username: 'admin2@gmail.com',
+					password: 'admin2@2',
+				},]
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -37,7 +46,39 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
-			}
+			},
+			addUser: (e) => {
+				const store = getStore()
+				e.preventDefault();
+				const toCompare = {
+					username: e.target.elements.username.value,
+					password: e.target.elements.password.value,
+				};
+		
+				if (store.userList.some((u) => JSON.stringify(u) === JSON.stringify(toCompare))) {
+					return false;
+				} else {
+					let newUser = [...store.userList, {username: e.target.elements.username.value, password: e.target.elements.password.value}]
+					setStore({ userList: newUser });
+					return true
+				}
+			},
+			handleLogin: (e) => {
+				const store = getStore()
+				e.preventDefault();
+		
+				const toCompare = {
+					username: e.target.elements.username.value,
+					password: e.target.elements.password.value,
+				};
+		
+				if (store.userList.some((u) => JSON.stringify(u) === JSON.stringify(toCompare))) {
+					console.log('User exists in array');
+					return true
+				} else {
+					return false
+				}
+			},
 		}
 	};
 };

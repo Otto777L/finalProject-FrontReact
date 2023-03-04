@@ -33,6 +33,14 @@
     z-index: 10;
     transition: color 0.4s;
    }
+
+   .foodButtonCat img {
+    display: none;
+   }
+
+   .foodButtonCat:hover img {
+    display: inline;
+   }
    
    .foodButtonCat:hover span {
     color: rgb(255, 255, 255);

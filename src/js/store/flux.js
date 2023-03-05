@@ -150,15 +150,36 @@ const getState = ({ getStore, getActions, setStore }) => {
 				};
 
 				const checkArray = store.userList.map(({userLogin}) => { return {userLogin}})
+				const indexOfObj = checkArray.findIndex((u) => JSON.stringify(u) == JSON.stringify(toCompare))
 
 				if (checkArray.some((u) => JSON.stringify(u) == JSON.stringify(toCompare))) {
-					console.log(checkArray.findIndex((u) => JSON.stringify(u) == JSON.stringify(toCompare)))
+					store.userList[indexOfObj].userStatus = 'loggedIn'
 					console.log('User exists in array');
 					return true
 				} else {
 					return false
 				}
 			},
+			handleLogout: (e) => {
+				const store = getStore()
+				e.preventDefault()
+
+				const toCompare = {
+					userStatus: 'loggedIn'
+				};
+
+				const checkArray = store.userList.map(({userStatus}) => { return {userStatus}})
+				const indexOfObj = checkArray.findIndex((u) => JSON.stringify(u) == JSON.stringify(toCompare))
+
+				if (checkArray.some((u) => JSON.stringify(u) == JSON.stringify(toCompare))) {
+					store.userList[indexOfObj].userStatus = 'loggedOut'
+					return true
+				} else {
+					return false
+				}
+
+
+			}
 		}
 	};
 };

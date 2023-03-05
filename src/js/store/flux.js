@@ -1,4 +1,4 @@
-const getState = ({ getStore, getActions, setStore }) => {	 	
+const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			demo: [
@@ -12,24 +12,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			],			
-			foods: 
-			[],	
+			],
+			foods:
+				[],
 			TYPES: {
 				pizza: "Pizza",
 				burguer: "Hamburguesas",
 				drinks: "Bebidas",
 				dessert: "Postres"
-			},		
+			},
 			cart: [],
 			userList: [
 				{
-					username: 'admin1@gmail.com',
-					password: 'admin1@1',
+					userLogin: {
+						username: 'admin1@gmail.com',
+						password: 'admin1@1',
+					},
+					userStatus: 'loggedOut',
+					userData: { firstName: 'admin1', lastName: 'admin1', adresses: {} },
 				},
 				{
-					username: 'admin2@gmail.com',
-					password: 'admin2@2',
+					userLogin: {
+						username: 'admin2@gmail.com',
+						password: 'admin2@2',
+					},
+					userStatus: 'loggedOut',
+					userData: { firstName: 'admin2', lastName: 'admin2', adresses: {} },
 				},]
 		},
 		actions: {
@@ -56,73 +64,76 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//reset the global store
 				setStore({ demo: demo });
 			},
-			getFoods: async () => { 
+			getFoods: async () => {
 				//const response = await fetch(endpoint);
 				const store = getStore();
-				let data = 
-				[{
-					id:1, 
-					name: "Margarita", 
-					cost: 12, 
-					type: store.TYPES.pizza,
-					img: "https://images.pexels.com/photos/3644/pizza-restaurant-dinner-lunch.jpg?auto=compress&cs=tinysrgb&w=1600",
-					cantidad: 0
-				},{
-					id:2, 
-					name: "Napolitana", 
-					cost: 18, 
-					type: store.TYPES.pizza,
-					img: "https://static.tnn.in/photo/msid-95377151,imgsize-491555,width-100,height-200,resizemode-75/95377151.jpg", 
-				},
-				{
-					id:3, 
-					name: "Primavera", 
-					cost: 18, 
-					type: store.TYPES.pizza,
-					img: "https://images.pexels.com/photos/2619970/pexels-photo-2619970.jpeg?auto=compress&cs=tinysrgb&w=1600", 
-				},
-				{
-					id:4, 
-					name: "Super Junkie", 
-					cost: 30, 
-					type: store.TYPES.pizza,
-					img: "https://images.pexels.com/photos/2271194/pexels-photo-2271194.jpeg?auto=compress&cs=tinysrgb&w=1600", 
-				},
-				{
-					id:5,
-					name: "La Jumbumbis", 
-					cost: 30, 
-					type: store.TYPES.burguer,
-					img: "https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&w=1600", 
-				},
-				{
-					id:6, 
-					name: "Pepsi", 
-					cost: 30, 
-					type: store.TYPES.drinks,
-					img: "https://images.pexels.com/photos/11942002/pexels-photo-11942002.jpeg?auto=compress&cs=tinysrgb&w=1600", 
-				},
-				{
-					id:7, 
-					name: "Helado de vainilla", 
-					cost: 30, 
-					type: store.TYPES.dessert,
-					img: "https://images.pexels.com/photos/1132274/pexels-photo-1132274.jpeg?auto=compress&cs=tinysrgb&w=1600", 
-				}];	
-				setStore({foods: data});
+				let data =
+					[{
+						id: 1,
+						name: "Margarita",
+						cost: 12,
+						type: store.TYPES.pizza,
+						img: "https://images.pexels.com/photos/3644/pizza-restaurant-dinner-lunch.jpg?auto=compress&cs=tinysrgb&w=1600",
+						cantidad: 0
+					}, {
+						id: 2,
+						name: "Napolitana",
+						cost: 18,
+						type: store.TYPES.pizza,
+						img: "https://static.tnn.in/photo/msid-95377151,imgsize-491555,width-100,height-200,resizemode-75/95377151.jpg",
+					},
+					{
+						id: 3,
+						name: "Primavera",
+						cost: 18,
+						type: store.TYPES.pizza,
+						img: "https://images.pexels.com/photos/2619970/pexels-photo-2619970.jpeg?auto=compress&cs=tinysrgb&w=1600",
+					},
+					{
+						id: 4,
+						name: "Super Junkie",
+						cost: 30,
+						type: store.TYPES.pizza,
+						img: "https://images.pexels.com/photos/2271194/pexels-photo-2271194.jpeg?auto=compress&cs=tinysrgb&w=1600",
+					},
+					{
+						id: 5,
+						name: "La Jumbumbis",
+						cost: 30,
+						type: store.TYPES.burguer,
+						img: "https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&w=1600",
+					},
+					{
+						id: 6,
+						name: "Pepsi",
+						cost: 30,
+						type: store.TYPES.drinks,
+						img: "https://images.pexels.com/photos/11942002/pexels-photo-11942002.jpeg?auto=compress&cs=tinysrgb&w=1600",
+					},
+					{
+						id: 7,
+						name: "Helado de vainilla",
+						cost: 30,
+						type: store.TYPES.dessert,
+						img: "https://images.pexels.com/photos/1132274/pexels-photo-1132274.jpeg?auto=compress&cs=tinysrgb&w=1600",
+					}];
+				setStore({ foods: data });
 			},
 			addUser: (e) => {
 				const store = getStore()
 				e.preventDefault();
+
 				const toCompare = {
-					username: e.target.elements.username.value,
-					password: e.target.elements.password.value,
+					userLogin: {
+						username: e.target.elements.username.value,
+						password: e.target.elements.password.value,
+					}
 				};
-		
+
 				if (store.userList.some((u) => JSON.stringify(u) === JSON.stringify(toCompare))) {
 					return false;
 				} else {
-					let newUser = [...store.userList, {username: e.target.elements.username.value, password: e.target.elements.password.value}]
+					let newUser = [...store.userList, { userLogin: { username: e.target.elements.username.value, password: e.target.elements.password.value }, userStatus: 'loggedOut', userData: { firstName: '', lastName: '', adresses: {} } }]
 					setStore({ userList: newUser });
 					return true
 				}
@@ -130,13 +141,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 			handleLogin: (e) => {
 				const store = getStore()
 				e.preventDefault();
-		
+
 				const toCompare = {
-					username: e.target.elements.username.value,
-					password: e.target.elements.password.value,
+					userLogin: {
+						username: e.target.elements.username.value,
+						password: e.target.elements.password.value,
+					}
 				};
-		
-				if (store.userList.some((u) => JSON.stringify(u) === JSON.stringify(toCompare))) {
+
+				const checkArray = store.userList.map(({userLogin}) => { return {userLogin}})
+
+				if (checkArray.some((u) => JSON.stringify(u) == JSON.stringify(toCompare))) {
+					console.log(checkArray.findIndex((u) => JSON.stringify(u) == JSON.stringify(toCompare)))
 					console.log('User exists in array');
 					return true
 				} else {

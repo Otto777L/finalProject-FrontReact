@@ -34,6 +34,7 @@ export function LogReg() {
                         <form className="w-75 justify-content-center align-items-center" onSubmit={(e) => {
                             if (actions.handleLogin(e)){
                                 setShow(false);
+                                
                                 navigate('/catalog');
                             } else {
                                 alert('Regístrate para realizar tus pedidos');

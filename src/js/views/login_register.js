@@ -13,6 +13,7 @@ export function LogReg(log) {
     const handleShow = () => setShow(true);
     const [select, setSelect] = useState("")
     const [passwordShown, setPasswordShown] = useState(false);
+    const [logInOut, setLogInOut] = useState("loggedOut")
 
     const navigate = useNavigate()
 
@@ -22,6 +23,8 @@ export function LogReg(log) {
 
     return (
         <>
+        {logInOut == "loggedOut" ? <>
+            
             <Button variant="danger" className="shopButton me-2 login" onClick={() => { setSelect("login"); handleShow() }}>Iniciar Sesión</Button>
             <Button variant="danger" className="shopButton me-2 register" onClick={() => { setSelect("register"); handleShow() }}>Regístrate</Button>
 
@@ -34,6 +37,7 @@ export function LogReg(log) {
                         <form className="w-75 justify-content-center align-items-center" onSubmit={(e) => {
                             if (actions.handleLogin(e)){
                                 setShow(false);
+                                setLogInOut("loggedIn")
                                 navigate('/catalog');
                                 //log=true;
                             } else {
@@ -100,10 +104,14 @@ export function LogReg(log) {
 
                 </div>
             </div></Modal>}
+            </> : <button className="shopButton me-2 logout" onClick={(e) => {
+                if (actions.handleLogout(e)){
+                    setLogInOut("loggedOut")
+                    navigate('/');
+                }
+            }}>Cerrar sesión</button>}
 
-
-
-
+            
         </>
     )
 }

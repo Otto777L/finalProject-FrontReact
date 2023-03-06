@@ -11,6 +11,7 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Catalog } from "./views/catalog";
 import { LogReg } from "./views/login_register";
+import { ShopCart } from "./views/shop-cart";
 
 //create your first component
 const Layout = () => {
@@ -27,6 +28,7 @@ const Layout = () => {
 						<Route path="/" element={<Home />} />
 						<Route path="/demo" element={<Demo />} />
 						<Route path="/catalog" element={<Catalog />} />
+						<Route path="/shop-cart" element={<ShopCart />} />
 						<Route path="/single/:theid" element={<Single />} />
 						<Route path="/login_register" element={<LogReg/>}/>
 						<Route path="*" element={<h1>Not found!</h1>} />

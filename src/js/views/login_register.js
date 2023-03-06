@@ -6,7 +6,7 @@ import { Context } from "../store/appContext";
 
 
 
-export function LogReg() {
+export function LogReg(log) {
     const { store, actions } = useContext(Context)
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -35,6 +35,7 @@ export function LogReg() {
                             if (actions.handleLogin(e)){
                                 setShow(false);
                                 navigate('/catalog');
+                                //log=true;
                             } else {
                                 alert('Regístrate para realizar tus pedidos');
                             }

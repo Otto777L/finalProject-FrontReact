@@ -108,6 +108,42 @@ const getState = ({ getStore, getActions, setStore }) => {
 					cost: 30, 
 					type: store.TYPES.dessert,
 					img: "https://images.pexels.com/photos/1132274/pexels-photo-1132274.jpeg?auto=compress&cs=tinysrgb&w=1600", 
+				},{
+					id:8,
+					name: "Bigguer", 
+					cost: 30, 
+					type: store.TYPES.burguer,
+					img: "https://www.shutterstock.com/shutterstock/photos/1785575501/display_1500/stock-photo-burguer-is-a-food-international-1785575501.jpg", 
+				},{
+					id:9,
+					name: "Double Chicken",
+					cost: 30, 
+					type: store.TYPES.burguer,
+					img: "https://www.shutterstock.com/shutterstock/photos/1662857290/display_1500/stock-photo-burguer-with-handmade-bread-on-white-background-1662857290.jpg", 
+				},{
+					id:10,
+					name: "Coca-Cola", 
+					cost: 30, 
+					type: store.TYPES.drinks,
+					img: "https://www.shutterstock.com/shutterstock/photos/193222430/display_1500/stock-photo-ankara-turkey-may-editorial-photo-of-classic-coca-cola-can-on-white-background-coca-193222430.jpg", 
+				},{
+					id:11,
+					name: "Nestea", 
+					cost: 30, 
+					type: store.TYPES.drinks,
+					img: "https://www.shutterstock.com/shutterstock/photos/2248909741/display_1500/stock-photo-tallinn-estonia-january-nestea-tea-black-iced-tea-drink-with-lemon-by-nestea-isolated-on-2248909741.jpg", 
+				},{
+					id:12,
+					name: "Cheese Cake", 
+					cost: 30, 
+					type: store.TYPES.dessert,
+					img: "https://www.shutterstock.com/shutterstock/photos/628459994/display_1500/stock-photo-slice-of-plain-cheesecake-with-cranberry-sauce-on-white-plate-decorated-with-mint-leaf-closeup-view-628459994.jpg", 
+				},{
+					id:13,
+					name: "Red Velvet", 
+					cost: 30, 
+					type: store.TYPES.dessert,
+					img: "https://www.shutterstock.com/shutterstock/photos/626025608/display_1500/stock-photo-red-velvet-cake-isolated-on-white-background-626025608.jpg", 
 				}];	
 				setStore({foods: data});
 			},

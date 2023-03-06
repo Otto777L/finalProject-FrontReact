@@ -42,13 +42,14 @@ const handleLogin = () => {
         </li>
       </ul>
       {!isLogged ? 
-      <div className="d-flex" role="search">        
-        < LogReg onClick={handleLogin} />
+      <div className="d-flex" role="search">  
+          <button className="shopButton me-2" onClick={handleLogin}>prov cambio</button>
+        < LogReg log={isLogged}/>        
         {/* <button className="shopButton"  onClick={handleLogin}>Registrarse</button> */}
       </div> : 
       <div className="d-flex" role="search">
         <input className="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"></input>
-        <button className="shopButton me-2"><img src="https://i.imgur.com/Kvc0Yzc.png" alt="Bootstrap" width="25" height="20"></img></button>
+        <Link className="shopButton me-2" to={`/shop-cart`}><img src="https://i.imgur.com/Kvc0Yzc.png" alt="Bootstrap" width="25" height="20"></img></Link>        
         <button className="shopButton" onClick={handleLogin}>Cerrar Sesión</button>
       </div> }
       

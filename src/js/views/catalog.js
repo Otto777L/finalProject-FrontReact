@@ -53,21 +53,21 @@ export const Catalog = () => {
       {pizzaArray.map((food, index)=>{
         return <CardCatalog key={food.id} item={food}/>
       })}
-    </div>
-    <div>
+    </div>    
       <h1>Hamburguesas</h1>
+      <div className="d-flex flex-row flex-nowrap overflow-auto">
       {burguerArray.map((food, index)=>{
         return <CardCatalog key={food.id} item={food}/>
       })}
     </div>
-    <div>
       <h1>Bebidas</h1>
+      <div className="d-flex flex-row flex-nowrap overflow-auto">
       {drinksArray.map((food, index)=>{
         return <CardCatalog key={food.id} item={food}/>
       })}
     </div>
-    <div>
       <h1>Postres</h1>
+      <div className="d-flex flex-row flex-nowrap overflow-auto">
       {dessertArray.map((food, index)=>{
         return <CardCatalog key={food.id} item={food}/>
       })}

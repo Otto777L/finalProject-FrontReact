@@ -43,7 +43,6 @@ const handleLogin = () => {
       </ul>
       {!isLogged ? 
       <div className="d-flex" role="search">  
-          <button className="shopButton me-2" onClick={handleLogin}>prov cambio</button>
         < LogReg log={isLogged}/>        
         {/* <button className="shopButton"  onClick={handleLogin}>Registrarse</button> */}
       </div> : 

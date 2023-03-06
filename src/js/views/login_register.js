@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import {  useNavigate  } from "react-router-dom";
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 
 
 
@@ -104,12 +105,15 @@ export function LogReg(log) {
 
                 </div>
             </div></Modal>}
-            </> : <button className="shopButton me-2 logout" onClick={(e) => {
+            </> : <>
+            <Link className="shopButton me-2" to={`/shop-cart`}><img src="https://i.imgur.com/Kvc0Yzc.png" alt="Bootstrap" width="25" height="20"></img></Link>
+            <button className="shopButton me-2 logout" onClick={(e) => {
                 if (actions.handleLogout(e)){
                     setLogInOut("loggedOut")
                     navigate('/');
                 }
-            }}>Cerrar sesión</button>}
+            }}>Cerrar sesión</button></>
+            }
 
             
         </>

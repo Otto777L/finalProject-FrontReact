@@ -1,4 +1,4 @@
-const getState = ({ getStore, getActions, setStore }) => {	 	
+const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			demo: [
@@ -12,24 +12,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			],			
-			foods: 
-			[],	
+			],
+			foods:
+				[],
 			TYPES: {
 				pizza: "Pizza",
 				burguer: "Hamburguesas",
 				drinks: "Bebidas",
 				dessert: "Postres"
-			},		
+			},
 			cart: [],
 			userList: [
 				{
-					username: 'admin1@gmail.com',
-					password: 'admin1@1',
+					userLogin: {
+						username: 'admin1@gmail.com',
+						password: 'admin1@1',
+					},
+					userStatus: 'loggedOut',
+					userData: { firstName: 'admin1', lastName: 'admin1', adresses: {} },
 				},
 				{
-					username: 'admin2@gmail.com',
-					password: 'admin2@2',
+					userLogin: {
+						username: 'admin2@gmail.com',
+						password: 'admin2@2',
+					},
+					userStatus: 'loggedOut',
+					userData: { firstName: 'admin2', lastName: 'admin2', adresses: {} },
 				},]
 		},
 		actions: {
@@ -56,7 +64,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//reset the global store
 				setStore({ demo: demo });
 			},
-			getFoods: async () => { 
+			getFoods: async () => {
 				//const response = await fetch(endpoint);
 				const store = getStore();
 				let data = 
@@ -150,15 +158,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 			addUser: (e) => {
 				const store = getStore()
 				e.preventDefault();
+
 				const toCompare = {
-					username: e.target.elements.username.value,
-					password: e.target.elements.password.value,
+					userLogin: {
+						username: e.target.elements.username.value,
+						password: e.target.elements.password.value,
+					}
 				};
-		
+
 				if (store.userList.some((u) => JSON.stringify(u) === JSON.stringify(toCompare))) {
 					return false;
 				} else {
-					let newUser = [...store.userList, {username: e.target.elements.username.value, password: e.target.elements.password.value}]
+					let newUser = [...store.userList, { userLogin: { username: e.target.elements.username.value, password: e.target.elements.password.value }, userStatus: 'loggedOut', userData: { firstName: '', lastName: '', adresses: {} } }]
 					setStore({ userList: newUser });
 					return true
 				}
@@ -166,19 +177,45 @@ const getState = ({ getStore, getActions, setStore }) => {
 			handleLogin: (e) => {
 				const store = getStore()
 				e.preventDefault();
-		
+
 				const toCompare = {
-					username: e.target.elements.username.value,
-					password: e.target.elements.password.value,
+					userLogin: {
+						username: e.target.elements.username.value,
+						password: e.target.elements.password.value,
+					}
 				};
-		
-				if (store.userList.some((u) => JSON.stringify(u) === JSON.stringify(toCompare))) {
+
+				const checkArray = store.userList.map(({userLogin}) => { return {userLogin}})
+				const indexOfObj = checkArray.findIndex((u) => JSON.stringify(u) == JSON.stringify(toCompare))
+
+				if (checkArray.some((u) => JSON.stringify(u) == JSON.stringify(toCompare))) {
+					store.userList[indexOfObj].userStatus = 'loggedIn'
 					console.log('User exists in array');
 					return true
 				} else {
 					return false
 				}
 			},
+			handleLogout: (e) => {
+				const store = getStore()
+				e.preventDefault()
+
+				const toCompare = {
+					userStatus: 'loggedIn'
+				};
+
+				const checkArray = store.userList.map(({userStatus}) => { return {userStatus}})
+				const indexOfObj = checkArray.findIndex((u) => JSON.stringify(u) == JSON.stringify(toCompare))
+
+				if (checkArray.some((u) => JSON.stringify(u) == JSON.stringify(toCompare))) {
+					store.userList[indexOfObj].userStatus = 'loggedOut'
+					return true
+				} else {
+					return false
+				}
+
+
+			}
 		}
 	};
 };

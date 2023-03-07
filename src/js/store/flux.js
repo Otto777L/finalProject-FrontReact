@@ -13,15 +13,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 					initial: "white"
 				}
 			],
-			foods:
-				[],
-			foodsUser: [],
 			TYPES: {
 				pizza: "Pizza",
 				burguer: "Hamburguesas",
 				drinks: "Bebidas",
 				dessert: "Postres"
 			},
+			foods:
+				[],
+			foodsUser: [
+				
+				],
 			cart: [],
 			userList: [
 				{
@@ -199,7 +201,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore()
 				const add = store.foods.find(item => item.id === id);
 
-				setStore({ foodsUser: [...foodsUser, add]})
+				setStore({ foodsUser: [...store.foodsUser, add]})
+				console.log(store.foodsUser)
 			},
 			rmvFoodtoCart: (id) => {
 				const store = getStore()

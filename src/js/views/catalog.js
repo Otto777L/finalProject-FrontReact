@@ -1,4 +1,4 @@
-import React, {useState,useEffect, useContext} from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Navbar } from "../component/navbar";
 import "../../styles/catalog.css";
 import { CardCatalog } from "../component/CardCatalog";
@@ -7,21 +7,21 @@ import { Context } from "../store/appContext";
 export const Catalog = () => {
 
   //const [foods, setFoods] = useState([]);
-  const {store, actions} = useContext(Context);
+  const { store, actions } = useContext(Context);
 
   /*const getFoods = () => {// agregar la info desde el store cuando se tenga cableado, esta funcion llena el objeto foods que se recorre mas abajo
-		/*fetch("https://swapi.dev/api/planets/")
-		.then((response)=> {
-			return response.json()
-		}).then((responseJSON)=> {
-			setFoods(responseJSON.results);
-		})*/
-    //setFoods([{id:1, name: "Pizza", cost: 12, img: "https://static.tnn.in/photo/msid-95377151,imgsize-491555,width-100,height-200,resizemode-75/95377151.jpg"}]);
-    //Evaluar como calcular la distancia para el tiempo de entrega con la api de ubicacion
-	//}
-  useEffect(()=>{		
+    /*fetch("https://swapi.dev/api/planets/")
+    .then((response)=> {
+      return response.json()
+    }).then((responseJSON)=> {
+      setFoods(responseJSON.results);
+    })*/
+  //setFoods([{id:1, name: "Pizza", cost: 12, img: "https://static.tnn.in/photo/msid-95377151,imgsize-491555,width-100,height-200,resizemode-75/95377151.jpg"}]);
+  //Evaluar como calcular la distancia para el tiempo de entrega con la api de ubicacion
+  //}
+  useEffect(() => {
     actions.getFoods()
-    }, []);
+  }, []);
 
   const pizzaArray = store.foods.filter(food => food.type == "Pizza");
   const burguerArray = store.foods.filter(food => food.type == "Hamburguesas");
@@ -50,28 +50,28 @@ export const Catalog = () => {
     <div>
       <h1>Pizzas</h1>
       <div className="d-flex flex-row flex-nowrap overflow-auto">
-      {pizzaArray.map((food, index)=>{
-        return <CardCatalog key={food.id} item={food}/>
-      })}
-    </div>    
+        {pizzaArray.map((food, index) => {
+          return <CardCatalog key={food.id} item={food} />
+        })}
+      </div>
       <h1>Hamburguesas</h1>
       <div className="d-flex flex-row flex-nowrap overflow-auto">
-      {burguerArray.map((food, index)=>{
-        return <CardCatalog key={food.id} item={food}/>
-      })}
-    </div>
+        {burguerArray.map((food, index) => {
+          return <CardCatalog key={food.id} item={food} />
+        })}
+      </div>
       <h1>Bebidas</h1>
       <div className="d-flex flex-row flex-nowrap overflow-auto">
-      {drinksArray.map((food, index)=>{
-        return <CardCatalog key={food.id} item={food}/>
-      })}
-    </div>
+        {drinksArray.map((food, index) => {
+          return <CardCatalog key={food.id} item={food} />
+        })}
+      </div>
       <h1>Postres</h1>
       <div className="d-flex flex-row flex-nowrap overflow-auto">
-      {dessertArray.map((food, index)=>{
-        return <CardCatalog key={food.id} item={food}/>
-      })}
+        {dessertArray.map((food, index) => {
+          return <CardCatalog key={food.id} item={food} />
+        })}
+      </div>
     </div>
-		</div>
   </div>)
 };

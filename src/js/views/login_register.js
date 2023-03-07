@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2'
+import { PerfilUsuario } from "./perfilUsuario";
 
 
 
@@ -129,6 +130,7 @@ export function LogReg(log) {
                 </div></Modal>}
             </> : <>
                 <Link className="shopButton me-2" to={`/shop-cart`}><img src="https://i.imgur.com/Kvc0Yzc.png" alt="Bootstrap" width="25" height="20"></img></Link>
+                <PerfilUsuario/>
                 <button className="shopButton me-2 logout" onClick={(e) => {
                     if (actions.handleLogout(e)) {
                         setLogInOut("loggedOut")

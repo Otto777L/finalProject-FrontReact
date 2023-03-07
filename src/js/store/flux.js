@@ -15,6 +15,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 			foods:
 				[],
+			foodsUser: [],
 			TYPES: {
 				pizza: "Pizza",
 				burguer: "Hamburguesas",
@@ -194,8 +195,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				setStore({ foods: data });
 			},
+			addFoodtoCart: (id) => {
+				const store = getStore()
+				const add = store.foods.find(item => item.id === id);
 
-			productListApi: async () => {
+				setStore({ foodsUser: [...foodsUser, add]})
+			},
+			rmvFoodtoCart: (id) => {
+				const store = getStore()
+				const rmv = store.foodsUser.filter(item => item.id !== id);
+				setStore({ foodsUser: [rmv]})
+			},
+
+			foodsUserListAddApi: async () => {
 				const store = getStore()
 				const stripe = require('stripe')('sk_test_51Mj0qaDYy6AFzbjNNFCR94y6ODRmOGgfniCC1oGNsNRwUcKSasJtjtuKspeiEOeNqmN3MdirkltJO2dvw0fdru7b00riId0U45');
 
@@ -204,25 +216,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 					limit: 50,
 				});
 
-				// const foodData = await store.foods.map((comida) => comida.name)
-				// console.log(foodData)
-
-				const foodData = await store.foods.map(async (comida) => {
-					if (productList.data.length < 1) {
+				const foodData = await store.foodsUser.map(async (comida) => {
+					if (productList.data.length < 1 && store.foodsUser.length > 0) {
 						const product = await stripe.products.create({
-								name: comida.name,
-								id: comida.id,
-								images: comida.images,
-								default_price_data: comida.default_price_data,
+							name: comida.name,
+							id: comida.id,
+							images: comida.images,
+							default_price_data: comida.default_price_data,
 						});
-	
-					}
+					} 
 
 				})
-				
-
-
 			},
+
 
 			addUser: (e) => {
 				const store = getStore()

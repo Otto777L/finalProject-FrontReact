@@ -20,7 +20,3 @@ export const CardCatalog = ({item}) => {
       </div>
     )  
 };
-/*InmobileCards.propTypes = {
-    item: PropTypes.object,
-    type: PropTypes.string
-}*/

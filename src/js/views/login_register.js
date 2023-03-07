@@ -106,7 +106,10 @@ export function LogReg(log) {
                 </div>
             </div></Modal>}
             </> : <>
-            <Link className="shopButton me-2" to={`/shop-cart`}><img src="https://i.imgur.com/Kvc0Yzc.png" alt="Bootstrap" width="25" height="20"></img></Link>
+            <Link className="shopButton me-2" to={`/shop-cart`}>
+                <img src="https://i.imgur.com/Kvc0Yzc.png" alt="Bootstrap" width="25" height="20"></img>
+                <p>{store.cart.length}</p>
+            </Link>
             <button className="shopButton me-2 logout" onClick={(e) => {
                 if (actions.handleLogout(e)){
                     setLogInOut("loggedOut")

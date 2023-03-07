@@ -13,8 +13,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					initial: "white"
 				}
 			],
-			foods:
-				[],
+			foods:[],
 			TYPES: {
 				pizza: "Pizza",
 				burguer: "Hamburguesas",
@@ -154,6 +153,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					img: "https://www.shutterstock.com/shutterstock/photos/626025608/display_1500/stock-photo-red-velvet-cake-isolated-on-white-background-626025608.jpg", 
 				}];	
 				setStore({foods: data});
+			},
+			getCart: async (dataCart) => {
+				setStore({cart: dataCart})
 			},
 			addUser: (e) => {
 				const store = getStore()

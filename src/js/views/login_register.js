@@ -15,12 +15,19 @@ export function LogReg(log) {
     const [select, setSelect] = useState("")
     const [passwordShown, setPasswordShown] = useState(false);
     const [logInOut, setLogInOut] = useState("loggedOut")
+    const [pwd, setPwd] = useState("")
+    const [confirmPwd, setConfirmPwd] = useState("")
 
     const navigate = useNavigate()
 
     const togglePassword = () => {
         setPasswordShown(!passwordShown);
     };
+
+    const validatePassword = (e) => {
+
+
+    }
 
     return (
         <>
@@ -76,24 +83,26 @@ export function LogReg(log) {
                     <form className="w-75 justify-content-center align-items-center" onSubmit={(e)=>{
                         if (actions.addUser(e)) {
                             setSelect("login")
+                            setPwd("")
+                            setConfirmPwd("")
                         } else {
-                            alert('¡Ya tienes cuenta! Inicia sesión para realizar tus pedidos')
+                            alert('¡Ya existe una cuenta con esa dirección de correo! Inicia sesión para realizar tus pedidos')
                         }
 
                     }}>
                         <div className="form-floating w-100 my-1">
-                            <input name="username" type="username" className="form-control" placeholder="name@example.com" />
+                            <input name="username" type="username" className="form-control" placeholder="name@example.com" required/>
                             <label htmlFor="floatingInput">Correo electrónico</label>
                         </div>
                         <div className="form-floating w-100 my-1">
-                            <input name="password" type="password" className="form-control" id="floatingPassword" placeholder="Contraseña" />
+                            <input name="password" type="password" onChange={(e)=> setPwd(e.target.value)} value={pwd} className="form-control" id="floatingPassword" placeholder="Contraseña" required/>
                             <label htmlFor="floatingPassword">Contraseña</label>
                         </div>
-                        {/* <div className="form-floating w-100 my-1">
-                            <input type="password" className="form-control" placeholder="Verificar Contraseña" />
-                            <label >Verificar contraseña</label>
-                        </div> */}
-                        <button className="shopButton" type="submit">Regístrate</button>
+                        <div className="form-floating w-100 my-1">
+                            <input name="confirmpassword" onChange={(e)=> setConfirmPwd(e.target.value)} value={confirmPwd} className="form-control" placeholder="Verificar Contraseña" required/>
+                            <label>Verificar contraseña</label>
+                        </div>
+                        {pwd === confirmPwd ? <button className="shopButton" type="submit">Regístrate</button> : <button className="alert alert-danger" type="submit" disabled>Las contraseñas no coinciden</button>}
                     </form>
 
                     <div className="d-flex align-items-baseline">

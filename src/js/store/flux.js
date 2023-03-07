@@ -37,7 +37,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					lastName: 'admin2',
 					adresses: {},
 				},],
-			currentUser: undefined,		
+			currentUser: undefined,
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -70,90 +70,120 @@ const getState = ({ getStore, getActions, setStore }) => {
 					[{
 						id: 1,
 						name: "Margarita",
-						cost: 12,
+						default_price: 12,
 						type: store.TYPES.pizza,
-						img: "https://images.pexels.com/photos/3644/pizza-restaurant-dinner-lunch.jpg?auto=compress&cs=tinysrgb&w=1600",
+						images: ["https://images.pexels.com/photos/3644/pizza-restaurant-dinner-lunch.jpg?auto=compress&cs=tinysrgb&w=1600"],
 						cantidad: 0
 					}, {
 						id: 2,
 						name: "Napolitana",
-						cost: 18,
+						default_price: 18,
 						type: store.TYPES.pizza,
-						img: "https://static.tnn.in/photo/msid-95377151,imgsize-491555,width-100,height-200,resizemode-75/95377151.jpg",
+						images: ["https://static.tnn.in/photo/msid-95377151,imgsize-491555,width-100,height-200,resizemode-75/95377151.jpg"],
 					},
 					{
 						id: 3,
 						name: "Primavera",
-						cost: 18,
+						default_price: 18,
 						type: store.TYPES.pizza,
-						img: "https://images.pexels.com/photos/2619970/pexels-photo-2619970.jpeg?auto=compress&cs=tinysrgb&w=1600",
+						images: ["https://images.pexels.com/photos/2619970/pexels-photo-2619970.jpeg?auto=compress&cs=tinysrgb&w=1600"],
 					},
 					{
 						id: 4,
 						name: "Super Junkie",
-						cost: 30,
+						default_price: 30,
 						type: store.TYPES.pizza,
-						img: "https://images.pexels.com/photos/2271194/pexels-photo-2271194.jpeg?auto=compress&cs=tinysrgb&w=1600",
+						images: ["https://images.pexels.com/photos/2271194/pexels-photo-2271194.jpeg?auto=compress&cs=tinysrgb&w=1600"],
 					},
 					{
 						id: 5,
 						name: "La Jumbumbis",
-						cost: 30,
+						default_price: 30,
 						type: store.TYPES.burguer,
-						img: "https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&w=1600",
+						images: ["https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&w=1600"],
 					},
 					{
 						id: 6,
 						name: "Pepsi",
-						cost: 30,
+						default_price: 30,
 						type: store.TYPES.drinks,
-						img: "https://images.pexels.com/photos/11942002/pexels-photo-11942002.jpeg?auto=compress&cs=tinysrgb&w=1600",
+						images: ["https://images.pexels.com/photos/11942002/pexels-photo-11942002.jpeg?auto=compress&cs=tinysrgb&w=1600"],
 					},
 					{
 						id: 7,
 						name: "Helado de vainilla",
-						cost: 30,
+						default_price: 30,
 						type: store.TYPES.dessert,
-						img: "https://images.pexels.com/photos/1132274/pexels-photo-1132274.jpeg?auto=compress&cs=tinysrgb&w=1600",
+						images: ["https://images.pexels.com/photos/1132274/pexels-photo-1132274.jpeg?auto=compress&cs=tinysrgb&w=1600"],
 					}, {
 						id: 8,
 						name: "Bigguer",
-						cost: 30,
+						default_price: 30,
 						type: store.TYPES.burguer,
-						img: "https://www.shutterstock.com/shutterstock/photos/1785575501/display_1500/stock-photo-burguer-is-a-food-international-1785575501.jpg",
+						images: ["https://www.shutterstock.com/shutterstock/photos/1785575501/display_1500/stock-photo-burguer-is-a-food-international-1785575501.jpg"],
 					}, {
 						id: 9,
 						name: "Double Chicken",
-						cost: 30,
+						default_price: 30,
 						type: store.TYPES.burguer,
-						img: "https://www.shutterstock.com/shutterstock/photos/1662857290/display_1500/stock-photo-burguer-with-handmade-bread-on-white-background-1662857290.jpg",
+						images: ["https://www.shutterstock.com/shutterstock/photos/1662857290/display_1500/stock-photo-burguer-with-handmade-bread-on-white-background-1662857290.jpg"],
 					}, {
 						id: 10,
 						name: "Coca-Cola",
-						cost: 30,
+						default_price: 30,
 						type: store.TYPES.drinks,
-						img: "https://www.shutterstock.com/shutterstock/photos/193222430/display_1500/stock-photo-ankara-turkey-may-editorial-photo-of-classic-coca-cola-can-on-white-background-coca-193222430.jpg",
+						images: ["https://www.shutterstock.com/shutterstock/photos/193222430/display_1500/stock-photo-ankara-turkey-may-editorial-photo-of-classic-coca-cola-can-on-white-background-coca-193222430.jpg"],
 					}, {
 						id: 11,
 						name: "Nestea",
-						cost: 30,
+						default_price: 30,
 						type: store.TYPES.drinks,
-						img: "https://www.shutterstock.com/shutterstock/photos/2248909741/display_1500/stock-photo-tallinn-estonia-january-nestea-tea-black-iced-tea-drink-with-lemon-by-nestea-isolated-on-2248909741.jpg",
+						images: ["https://www.shutterstock.com/shutterstock/photos/2248909741/display_1500/stock-photo-tallinn-estonia-january-nestea-tea-black-iced-tea-drink-with-lemon-by-nestea-isolated-on-2248909741.jpg"],
 					}, {
 						id: 12,
 						name: "Cheese Cake",
-						cost: 30,
+						default_price: 30,
 						type: store.TYPES.dessert,
-						img: "https://www.shutterstock.com/shutterstock/photos/628459994/display_1500/stock-photo-slice-of-plain-cheesecake-with-cranberry-sauce-on-white-plate-decorated-with-mint-leaf-closeup-view-628459994.jpg",
+						images: ["https://www.shutterstock.com/shutterstock/photos/628459994/display_1500/stock-photo-slice-of-plain-cheesecake-with-cranberry-sauce-on-white-plate-decorated-with-mint-leaf-closeup-view-628459994.jpg"],
 					}, {
 						id: 13,
 						name: "Red Velvet",
-						cost: 30,
+						default_price: 30,
 						type: store.TYPES.dessert,
-						img: "https://www.shutterstock.com/shutterstock/photos/626025608/display_1500/stock-photo-red-velvet-cake-isolated-on-white-background-626025608.jpg",
+						images: ["https://www.shutterstock.com/shutterstock/photos/626025608/display_1500/stock-photo-red-velvet-cake-isolated-on-white-background-626025608.jpg"],
 					}];
+
 				setStore({ foods: data });
 			},
+
+			productPost: async () => {
+				const store = getStore()
+				const stripe = require('stripe')('sk_test_51Mj0qaDYy6AFzbjNNFCR94y6ODRmOGgfniCC1oGNsNRwUcKSasJtjtuKspeiEOeNqmN3MdirkltJO2dvw0fdru7b00riId0U45');
+
+				const productList = await stripe.products.list({
+					active: true,
+					limit: 50,
+				});
+
+				// const foodData = await store.foods.map((comida) => comida.name)
+				// console.log(foodData)
+
+				const foodData = await store.foods.map(async (comida) => {
+					if (productList.data.length < 1) {
+						const product = await stripe.products.create({
+								name: comida.name,
+								id: comida.id,
+								images: comida.images,
+						});
+	
+					}
+
+				})
+				
+
+
+			},
+
 			addUser: (e) => {
 				const store = getStore()
 				e.preventDefault();
@@ -173,7 +203,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						firstName: '',
 						lastName: '',
 						adresses: {},
-						}]
+					}]
 					setStore({ userList: newUser });
 					return true
 				}
@@ -190,7 +220,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				const userExist = store.userList.find((user) => {
 					if (user.username === toCompare.username && user.password === toCompare.password) {
-						setStore({currentUser: user})
+						setStore({ currentUser: user })
 						return true
 					}
 					return false
@@ -201,7 +231,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			handleLogout: (e) => {
 				const store = getStore()
 				e.preventDefault()
-				setStore({currentUser: undefined})
+				setStore({ currentUser: undefined })
 
 				return true
 			}

@@ -21,7 +21,7 @@ export const Catalog = () => {
 	//}
   useEffect(()=>{		
     actions.getFoods()
-    actions.productPost()
+    actions.productListApi()
     }, []);
 
   const pizzaArray = store.foods.filter(food => food.type == "Pizza");

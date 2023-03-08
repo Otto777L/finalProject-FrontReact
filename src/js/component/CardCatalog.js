@@ -10,11 +10,11 @@ export const CardCatalog = ({key, item}) => {
   
     return (
         <div className="card m-2" style={{width: '250px', padding:'0px'}}>
-        <img src={item.img} className="card-img-top product-img" alt="..."></img>
+        <img src={item.images[0]} className="card-img-top product-img" alt="..."></img>
         <div className="card-body d-flex justify-content-between">
           <div className="">
             <h5 className="card-title">{item.name}</h5>
-            <p className="card-text">{item.cost}</p>
+            <p className="card-text">{item.default_price}</p>
           </div>
           <div className="">
             <i className="fa-solid fa-plus" onClick={() => actions.getCart(

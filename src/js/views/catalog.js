@@ -20,8 +20,8 @@ export const Catalog = () => {
     //Evaluar como calcular la distancia para el tiempo de entrega con la api de ubicacion
 	//}
   useEffect(()=>{		
-    //getFoods();
-	},[]);
+    actions.getFoods()
+    }, []);
 
   const pizzaArray = store.foods.filter(food => food.type == "Pizza");
   const burguerArray = store.foods.filter(food => food.type == "Hamburguesas");

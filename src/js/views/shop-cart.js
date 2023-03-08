@@ -18,14 +18,14 @@ export const ShopCart = () => {
 
   const handleNextPrevClick = a => setActive(a);
   return (<>
-      <CDBStepper>
+      <CDBStepper steps={[4]}>
         <CDBStep
           id={1}
           icon="pencil-alt"
           name="Modifica tu pedido"
           handleClick={() => handleNextPrevClick(1)}
           active={active}
-          component={<ProductList location={location} zoomLevel={17}/>}
+          component={<ProductList handleNextPrevClick={handleNextPrevClick} location={location} zoomLevel={17}/>}
         />
         <CDBStep
           id={2}

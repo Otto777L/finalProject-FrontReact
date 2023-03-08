@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 import "../../styles/card-catalog.css";
 import { Context } from "../store/appContext";
 
-export const CardCatalog = ({key, item}) => {   
+export const CardCatalog = ({item}) => {   
   
   const {store, actions} = useContext(Context);
   
@@ -17,14 +17,7 @@ export const CardCatalog = ({key, item}) => {
             <p className="card-text">{item.default_price}</p>
           </div>
           <div className="">
-            <i className="fa-solid fa-plus" onClick={() => actions.getCart(
-                {
-                  key: key,
-                  name: item.name, 
-                  cost: item.cost, 
-                  img: item.img,
-                  qta: 0}
-              )}></i>
+            <i className="fa-solid fa-plus" onClick={() => actions.addToCart(item)}></i>
           </div>
         </div>
       </div>

@@ -15,11 +15,11 @@ export function LogReg(log) {
     const handleShow = () => setShow(true);
     const [select, setSelect] = useState("")
     const [passwordShown, setPasswordShown] = useState(false);
-    const [logInOut, setLogInOut] = useState("loggedOut")
-    const [pwd, setPwd] = useState("")
-    const [confirmPwd, setConfirmPwd] = useState("")
+    const [logInOut, setLogInOut] = useState("loggedIn");
+    const [pwd, setPwd] = useState("");
+    const [confirmPwd, setConfirmPwd] = useState("");
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const togglePassword = () => {
         setPasswordShown(!passwordShown);

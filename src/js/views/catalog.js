@@ -52,32 +52,6 @@ export const Catalog = () => {
       </button>
     </div>
     <div>
-<<<<<<< HEAD
-      <h1>Pizzas</h1>
-      <div className="d-flex flex-row flex-nowrap overflow-auto">
-        {pizzaArray.map((food, index) => {
-          return <CardCatalog key={food.id} item={food} />
-        })}
-      </div>
-      <h1>Hamburguesas</h1>
-      <div className="d-flex flex-row flex-nowrap overflow-auto">
-        {burguerArray.map((food, index) => {
-          return <CardCatalog key={food.id} item={food} />
-        })}
-      </div>
-      <h1>Bebidas</h1>
-      <div className="d-flex flex-row flex-nowrap overflow-auto">
-        {drinksArray.map((food, index) => {
-          return <CardCatalog key={food.id} item={food} />
-        })}
-      </div>
-      <h1>Postres</h1>
-      <div className="d-flex flex-row flex-nowrap overflow-auto">
-        {dessertArray.map((food, index) => {
-          return <CardCatalog key={food.id} item={food} />
-        })}
-      </div>
-=======
       <h1 className="text-center">Pizzas</h1>
       <div className="d-flex row justify-content-center">
       {pizzaArray.map((food, index)=>{
@@ -101,7 +75,6 @@ export const Catalog = () => {
       {dessertArray.map((food, index)=>{
         return <CardCatalog key={food.id} item={food}/>
       })}
->>>>>>> master
     </div>
   </div>)
 };

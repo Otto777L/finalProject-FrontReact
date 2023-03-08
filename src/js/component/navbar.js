@@ -42,19 +42,10 @@ export const Navbar = () => {
               </ul>
             </li>
           </ul>
-          {!isLogged ?
-            <div className="d-flex" role="search">
-              < LogReg log={isLogged} />
-              {/* <button className="shopButton"  onClick={handleLogin}>Registrarse</button> */}
-            </div> :
-            <div className="d-flex" role="search">
-              <input className="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"></input>
-              <Link className="shopButton me-2" to={`/shop-cart`}><img src="https://i.imgur.com/Kvc0Yzc.png" alt="Bootstrap" width="25" height="20"></img></Link>
-              <button className="shopButton" onClick={handleLogin}>Cerrar Sesión</button>
-            </div>}
-
-        </div>
-      </div>
-    </nav>
-  );
+        < LogReg log={isLogged}/>        
+        {/* <button className="shopButton"  onClick={handleLogin}>Registrarse</button> */}      
+    </div>
+  </div>
+</nav>
+	);
 };

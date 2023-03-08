@@ -34,6 +34,8 @@
 		"@babel/preset-env": "^7.16.4",
 		"@babel/preset-react": "^7.16.0",
 		"@babel/runtime": "^7.16.3",
+		"@iconify/icons-mdi": "^1.2.43",
+		"@iconify/react": "^4.1.0",
 		"babel-eslint": "^10.1.0",
 		"babel-loader": "^8.2.3",
 		"babel-plugin-transform-class-properties": "^6.24.1",
@@ -75,6 +77,9 @@
 	},
 	"dependencies": {
 		"@lottiefiles/react-lottie-player": "^3.5.2",
+		"bootstrap": "^5.2.3",
+		"cdbreact": "^1.5.9",
+		"ci": "^2.2.0",
 		"@stripe/react-stripe-js": "^1.16.5",
 		"@stripe/stripe-js": "^1.48.0",
 		"google-map-react": "^2.2.0",

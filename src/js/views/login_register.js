@@ -26,8 +26,8 @@ export function LogReg(log) {
         <>
         {logInOut == "loggedOut" ? <>
             
-            <Button variant="danger" className="shopButton me-2 login" onClick={() => { setSelect("login"); handleShow() }}>Iniciar Sesión</Button>
-            <Button variant="danger" className="shopButton me-2 register" onClick={() => { setSelect("register"); handleShow() }}>Regístrate</Button>
+            <button className="shopButton me-2 login" onClick={() => { setSelect("login"); handleShow() }}>Iniciar Sesión</button>
+            <button className="shopButton me-2 register" onClick={() => { setSelect("register"); handleShow() }}>Regístrate</button>
 
             {select == "login" ? <Modal show={show} onHide={handleClose}>
                 <div className="container w-100 m-auto">
@@ -106,7 +106,7 @@ export function LogReg(log) {
                 </div>
             </div></Modal>}
             </> : <>
-            <Link className="shopButton me-2" to={`/shop-cart`}>
+            <Link className="shopButton d-flex flex-row me-2" to={`/shop-cart`}>
                 <img src="https://i.imgur.com/Kvc0Yzc.png" alt="Bootstrap" width="25" height="20"></img>
                 <p>{store.cart.length}</p>
             </Link>

@@ -29,7 +29,11 @@ export const Catalog = () => {
   const dessertArray = store.foods.filter(food => food.type == "Postres");
 
   return (<div>
-    <div className="container categories text-bg-secondary">
+    <div className="container-fluid categories">
+      <button className="foodButtonCat m-2">
+        <img className="icon me-2" src="https://cdn-icons-png.flaticon.com/512/6978/6978281.png"></img>
+        <span>Todo</span>
+      </button>
       <button className="foodButtonCat m-2">
         <img className="icon me-2" src="https://cdn-icons-png.flaticon.com/512/6978/6978281.png"></img>
         <span>Pizzas</span>
@@ -48,26 +52,26 @@ export const Catalog = () => {
       </button>
     </div>
     <div>
-      <h1>Pizzas</h1>
-      <div className="d-flex flex-row flex-nowrap overflow-auto">
+      <h1 className="text-center">Pizzas</h1>
+      <div className="d-flex row justify-content-center">
       {pizzaArray.map((food, index)=>{
         return <CardCatalog key={food.id} item={food}/>
       })}
     </div>    
-      <h1>Hamburguesas</h1>
-      <div className="d-flex flex-row flex-nowrap overflow-auto">
+      <h1 className="text-center">Hamburguesas</h1>
+      <div className="d-flex row justify-content-center">
       {burguerArray.map((food, index)=>{
         return <CardCatalog key={food.id} item={food}/>
       })}
     </div>
-      <h1>Bebidas</h1>
-      <div className="d-flex flex-row flex-nowrap overflow-auto">
+      <h1 className="text-center">Bebidas</h1>
+      <div className="d-flex row justify-content-center">
       {drinksArray.map((food, index)=>{
         return <CardCatalog key={food.id} item={food}/>
       })}
     </div>
-      <h1>Postres</h1>
-      <div className="d-flex flex-row flex-nowrap overflow-auto">
+      <h1 className="text-center">Postres</h1>
+      <div className="d-flex row justify-content-center">
       {dessertArray.map((food, index)=>{
         return <CardCatalog key={food.id} item={food}/>
       })}

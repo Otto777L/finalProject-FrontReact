@@ -20,7 +20,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				drinks: "Bebidas",
 				dessert: "Postres"
 			},
-			cart: [],
+			cart: [{
+				key:1231213, 
+				name: 'Inicial Prueba', 
+				cost: 1515, img: 'https://w7.pngwing.com/pngs/441/722/png-transparent-pikachu-thumbnail.png',
+				qta: 0
+				}],
 			userList: [
 				{
 					userLogin: {
@@ -151,11 +156,41 @@ const getState = ({ getStore, getActions, setStore }) => {
 					cost: 30, 
 					type: store.TYPES.dessert,
 					img: "https://www.shutterstock.com/shutterstock/photos/626025608/display_1500/stock-photo-red-velvet-cake-isolated-on-white-background-626025608.jpg", 
+				},{
+					id:14,
+					name: "Red Velvet", 
+					cost: 30, 
+					type: store.TYPES.dessert,
+					img: "https://www.shutterstock.com/shutterstock/photos/626025608/display_1500/stock-photo-red-velvet-cake-isolated-on-white-background-626025608.jpg", 
+				},{
+					id:15,
+					name: "Red Velvet", 
+					cost: 30, 
+					type: store.TYPES.dessert,
+					img: "https://www.shutterstock.com/shutterstock/photos/626025608/display_1500/stock-photo-red-velvet-cake-isolated-on-white-background-626025608.jpg", 
+				},{
+					id:16,
+					name: "Red Velvet", 
+					cost: 30, 
+					type: store.TYPES.dessert,
+					img: "https://www.shutterstock.com/shutterstock/photos/626025608/display_1500/stock-photo-red-velvet-cake-isolated-on-white-background-626025608.jpg", 
+				},{
+					id:17,
+					name: "Red Velvet", 
+					cost: 30, 
+					type: store.TYPES.dessert,
+					img: "https://www.shutterstock.com/shutterstock/photos/626025608/display_1500/stock-photo-red-velvet-cake-isolated-on-white-background-626025608.jpg", 
+				},{
+					id:18,
+					name: "Red Velvet", 
+					cost: 30, 
+					type: store.TYPES.dessert,
+					img: "https://www.shutterstock.com/shutterstock/photos/626025608/display_1500/stock-photo-red-velvet-cake-isolated-on-white-background-626025608.jpg", 
 				}];	
 				setStore({foods: data});
 			},
 			getCart: async (dataCart) => {
-				setStore({cart: dataCart})
+				setStore(getStore().cart.push(dataCart));
 			},
 			addUser: (e) => {
 				const store = getStore()

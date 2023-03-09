@@ -19,12 +19,12 @@ export const ProductList = ({handleNextPrevClick}) => {
           <img src={product.images[0]} className="thumbnail" alt="..."/>
           <h4>{product.name}</h4>
           <div className="d-flex flex-row">
-            <div className="shopButton">
-              <i className="fa-solid fa-minus" ></i>
+            <div className="shopButton" onClick={() => actions.subFromCart(product)}>
+              <i className="fa-solid fa-minus"></i>
             </div>
-            <h3 className="me-2">{product.qta}</h3>
-            <div className="shopButton">
-              <i className="fa-solid fa-plus" ></i>
+            <h3 className="ms-2 me-2">{product.quantity}</h3>
+            <div className="shopButton" onClick={() => actions.addToCart(product)}>
+              <i className="fa-solid fa-plus"></i>
             </div>
           </div>
         </div>

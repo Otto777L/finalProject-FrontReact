@@ -4,7 +4,8 @@ import Modal from 'react-bootstrap/Modal';
 import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import "../../styles/home.css";
 
 
 
@@ -15,7 +16,7 @@ export function LogReg(log) {
     const handleShow = () => setShow(true);
     const [select, setSelect] = useState("")
     const [passwordShown, setPasswordShown] = useState(false);
-    const [logInOut, setLogInOut] = useState("loggedIn");
+    const [logInOut, setLogInOut] = useState(localStorage.getItem("isLogged"));
     const [pwd, setPwd] = useState("");
     const [confirmPwd, setConfirmPwd] = useState("");
 
@@ -32,7 +33,7 @@ export function LogReg(log) {
 
     return (
         <>
-        {logInOut == "loggedOut" ? <>
+        {!logInOut ? <>
             
             <button className="shopButton me-2 login" onClick={() => { setSelect("login"); handleShow() }}>Iniciar Sesión</button>
             <button className="shopButton me-2 register" onClick={() => { setSelect("register"); handleShow() }}>Regístrate</button>
@@ -46,7 +47,7 @@ export function LogReg(log) {
                             <form className="w-75 justify-content-center align-items-center" onSubmit={(e) => {
                                 if (actions.handleLogin(e)) {
                                     setShow(false);
-                                    setLogInOut("loggedIn")
+                                    setLogInOut(true)
                                     navigate('/catalog');
                                     //log=true;
                                 } else {
@@ -128,13 +129,13 @@ export function LogReg(log) {
                     </div>
                 </div></Modal>}
             </> : <>
-            <Link className="shopButton d-flex flex-row me-2" to={`/shop-cart`}>
-                <img src="https://i.imgur.com/Kvc0Yzc.png" alt="Bootstrap" width="25" height="20"></img>
-                <p>{store.cart.length}</p>
+            <Link className="shopButton d-flex flex-row me-2 card-number" to={`/shop-cart`}>
+                <img className="me-2" src="https://i.imgur.com/Kvc0Yzc.png" alt="Bootstrap" width="25" height="20"></img>
+                <span className="card-number">{store.cart.length}</span>
             </Link>
             <button className="shopButton me-2 logout" onClick={(e) => {
                 if (actions.handleLogout(e)){
-                    setLogInOut("loggedOut")
+                    setLogInOut(false)
                     navigate('/');
                 }
             }}>Cerrar sesión</button></>

@@ -74,7 +74,7 @@ const getState = ({ getStore, getActions, setStore }) => {
               unit_amount: 1200,
               currency: "usd",
             },
-            qta: 1,
+            quantity: 1,
             type: store.TYPES.pizza,
             images: [
               "https://images.pexels.com/photos/3644/pizza-restaurant-dinner-lunch.jpg?auto=compress&cs=tinysrgb&w=1600",
@@ -87,7 +87,7 @@ const getState = ({ getStore, getActions, setStore }) => {
               unit_amount: 1800,
               currency: "usd",
             },
-            qta: 1,
+            quantity: 1,
             type: store.TYPES.pizza,
             images: [
               "https://static.tnn.in/photo/msid-95377151,imgsize-491555,width-100,height-200,resizemode-75/95377151.jpg",
@@ -100,7 +100,7 @@ const getState = ({ getStore, getActions, setStore }) => {
               unit_amount: 1800,
               currency: "usd",
             },
-            qta: 1,
+            quantity: 1,
             type: store.TYPES.pizza,
             images: [
               "https://images.pexels.com/photos/2619970/pexels-photo-2619970.jpeg?auto=compress&cs=tinysrgb&w=1600",
@@ -113,7 +113,7 @@ const getState = ({ getStore, getActions, setStore }) => {
               unit_amount: 3000,
               currency: "usd",
             },
-            qta: 1,
+            quantity: 1,
             type: store.TYPES.pizza,
             images: [
               "https://images.pexels.com/photos/2271194/pexels-photo-2271194.jpeg?auto=compress&cs=tinysrgb&w=1600",
@@ -126,7 +126,7 @@ const getState = ({ getStore, getActions, setStore }) => {
               unit_amount: 3000,
               currency: "usd",
             },
-            qta: 1,
+            quantity: 1,
             type: store.TYPES.burguer,
             images: [
               "https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&w=1600",
@@ -139,7 +139,7 @@ const getState = ({ getStore, getActions, setStore }) => {
               unit_amount: 3000,
               currency: "usd",
             },
-            qta: 1,
+            quantity: 1,
             type: store.TYPES.drinks,
             images: [
               "https://images.pexels.com/photos/11942002/pexels-photo-11942002.jpeg?auto=compress&cs=tinysrgb&w=1600",
@@ -152,7 +152,7 @@ const getState = ({ getStore, getActions, setStore }) => {
               unit_amount: 3000,
               currency: "usd",
             },
-            qta: 1,
+            quantity: 1,
             type: store.TYPES.dessert,
             images: [
               "https://images.pexels.com/photos/1132274/pexels-photo-1132274.jpeg?auto=compress&cs=tinysrgb&w=1600",
@@ -165,7 +165,7 @@ const getState = ({ getStore, getActions, setStore }) => {
               unit_amount: 3000,
               currency: "usd",
             },
-            qta: 1,
+            quantity: 1,
             type: store.TYPES.burguer,
             images: [
               "https://www.shutterstock.com/shutterstock/photos/1785575501/display_1500/stock-photo-burguer-is-a-food-international-1785575501.jpg",
@@ -178,7 +178,7 @@ const getState = ({ getStore, getActions, setStore }) => {
               unit_amount: 3000,
               currency: "usd",
             },
-            qta: 1,
+            quantity: 1,
             type: store.TYPES.burguer,
             images: [
               "https://www.shutterstock.com/shutterstock/photos/1662857290/display_1500/stock-photo-burguer-with-handmade-bread-on-white-background-1662857290.jpg",
@@ -191,7 +191,7 @@ const getState = ({ getStore, getActions, setStore }) => {
               unit_amount: 3000,
               currency: "usd",
             },
-            qta: 1,
+            quantity: 1,
             type: store.TYPES.drinks,
             images: [
               "https://www.shutterstock.com/shutterstock/photos/193222430/display_1500/stock-photo-ankara-turkey-may-editorial-photo-of-classic-coca-cola-can-on-white-background-coca-193222430.jpg",
@@ -204,7 +204,7 @@ const getState = ({ getStore, getActions, setStore }) => {
               unit_amount: 3000,
               currency: "usd",
             },
-            qta: 1,
+            quantity: 1,
             type: store.TYPES.drinks,
             images: [
               "https://www.shutterstock.com/shutterstock/photos/2248909741/display_1500/stock-photo-tallinn-estonia-january-nestea-tea-black-iced-tea-drink-with-lemon-by-nestea-isolated-on-2248909741.jpg",
@@ -217,7 +217,7 @@ const getState = ({ getStore, getActions, setStore }) => {
               unit_amount: 3000,
               currency: "usd",
             },
-            qta: 1,
+            quantity: 1,
             type: store.TYPES.dessert,
             images: [
               "https://www.shutterstock.com/shutterstock/photos/628459994/display_1500/stock-photo-slice-of-plain-cheesecake-with-cranberry-sauce-on-white-plate-decorated-with-mint-leaf-closeup-view-628459994.jpg",
@@ -230,7 +230,7 @@ const getState = ({ getStore, getActions, setStore }) => {
               unit_amount: 3000,
               currency: "usd",
             },
-            qta: 1,
+            quantity: 1,
             type: store.TYPES.dessert,
             images: [
               "https://www.shutterstock.com/shutterstock/photos/626025608/display_1500/stock-photo-red-velvet-cake-isolated-on-white-background-626025608.jpg",
@@ -245,7 +245,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		if (getStore().cart.find(product => product.id == dataCart.id)) {
 			newCart = getStore().cart.map(product => {
 				if (product.id == dataCart.id) {
-					product.qta += 1;
+					product.quantity += 1;
 				}
 				return product;
 			})
@@ -253,6 +253,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 			newCart = [...getStore().cart,dataCart];// Hace una copia de lo que ya esta en cart y luego agrega un nuevo objeto al final
 		}
 		setStore({cart: newCart});        
+      },
+	  subFromCart: async (dataCart) => {		
+		if (getStore().cart.find(product => product.id == dataCart.id)) {			
+			let newCart = getStore().cart.map(product => {
+				if ((product.id == dataCart.id) && (product.quantity > 1)) {
+					product.quantity -= 1;
+				}
+				return product;
+			})
+			setStore({cart: newCart});
+		}        
       },
       addFoodtoCart: (id) => {
         const store = getStore();
@@ -333,6 +344,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             user.username === toCompare.username &&
             user.password === toCompare.password
           ) {
+			localStorage.setItem("isLogged",true);
             setStore({ currentUser: user });
             return true;
           }
@@ -344,6 +356,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       handleLogout: (e) => {
         const store = getStore();
         e.preventDefault();
+		localStorage.setItem("isLogged",false);
         setStore({ currentUser: undefined });
 
         return true;

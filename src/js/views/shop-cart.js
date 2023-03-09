@@ -10,11 +10,15 @@ export const ShopCart = () => {
 
     const [active, setActive] = useState(1);
 
-    const location = {
-        address: '1600 Amphitheatre Parkway, Mountain View, california.',
-        lat: 37.42216,
-        lng: -122.08427,
-    }    
+    let location = {
+      lat: 10.495607466710284,
+      lng:  -66.84886393485347,
+    }
+
+    navigator.geolocation.getCurrentPosition(function(position) {
+      location.lat = position.coords.latitude;
+      location.lng = position.coords.longitude;
+    });    
 
   const handleNextPrevClick = a => setActive(a);
   return (<>
@@ -33,7 +37,7 @@ export const ShopCart = () => {
           name="Selecciona tu dirección de entrega"
           handleClick={() => handleNextPrevClick(2)}
           active={active}
-          component={<Map location={location} zoomLevel={17}/>}
+          component={<Map handleNextPrevClick={handleNextPrevClick} location={location} zoomLevel={17}/>}
         />
         <CDBStep
           id={3}

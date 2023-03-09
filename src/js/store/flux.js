@@ -21,6 +21,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				dessert: "Postres",
 			},
 			cart: [],
+			cartAPI: [],
 			userList: [
 				{
 					username: "admin1@gmail.com",
@@ -294,7 +295,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const foodCart = await store.cart.map(async (comida) => {
 					const productSearch = await stripe.products.search({ query: `name~"${comida.name}"` });
 					// console.log(productSearch.data[0].default_price)
-					auxCart.push({ price: productSearch.data[0].default_price, quantity: comida.quantity})
+					auxCart.push({ price: productSearch.data[0].default_price, quantity: comida.quantity })
 				});
 				// 	// const { error } = await stripe.redirectToCheckout({
 				// 	// 	line_items: [
@@ -308,7 +309,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				// console.log(auxCart)
 				// actions.createCheckOut(auxCart)
-				actions.checkOutStripe(auxCart, stripePromise)
+				// actions.checkOutStripe(auxCart, stripePromise) esta es la que vale
+
+				setStore({ cartAPI: auxCart})
+				console.log(store.cartAPI)
 
 			},
 
@@ -323,20 +327,34 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// 	})
 			// },
 
+			// funcion del checkout
 			checkOutStripe: async (productos, stripePromise) => {
 				let items = productos
+				console.log(productos)
 				const stripe = await stripePromise;
-				console.log(items)
+				// console.log(items)
 				const { error } = await stripe.redirectToCheckout({
 					lineItems: items,
 					mode: 'payment',
 					successUrl: 'http://localhost:3000/?success',
 					cancelUrl: 'http://localhost:3000/?canceled',
 				})
-
 			},
 
+			// checkOutStripe: async (productos, stripePromise) => {
+			// 	let items = productos
+			// 	const stripe = await stripePromise;
+			// 	console.log(items)
+			// 	const { error } = await stripe.redirectToCheckout({
+			// 		lineItems: [
+			// 			{ price: 'price_1MjWgnDYy6AFzbjN1bKbUVdX', quantity: 2 }, 
+			// 			{ price: "price_1MjWgnDYy6AFzbjNbJzpPZ61", quantity: 6 }],
+			// 		mode: 'payment',
+			// 		successUrl: 'http://localhost:3000/?success',
+			// 		cancelUrl: 'http://localhost:3000/?canceled',
+			// 	})
 
+			// },
 
 
 			addUser: (e) => {

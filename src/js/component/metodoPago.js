@@ -11,8 +11,13 @@ const stripePromise = loadStripe('pk_test_51Mj0qaDYy6AFzbjNe1iUedNDXTIvnmSlb994Z
 
 export function Checkout() {
     const { store, actions } = useContext(Context)
+
+    useEffect(()=>{		
+      actions.prepareItemstoCheckout(stripePromise)
+      }, []);
+
     return (
-    <button role="link" onClick={(e) => {actions.prepareItemstoCheckout(stripePromise)}}>
+    <button role="link" onClick={(e) => {actions.checkOutStripe(store.cartAPI, stripePromise)}}>
       Checkout
     </button>
   );

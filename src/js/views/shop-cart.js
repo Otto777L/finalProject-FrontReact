@@ -5,6 +5,7 @@ import { Context } from "../store/appContext";
 import { Map } from "../component/Map";
 import { CDBStepper, CDBStep, CDBInput, CDBBtn, CDBContainer } from "cdbreact";
 import { ProductList } from "../component/product-list";
+import { Checkout } from "../component/metodoPago";
 
 export const ShopCart = () => { 
 
@@ -41,7 +42,7 @@ export const ShopCart = () => {
           name="Selecciona tu metodo de pago"
           handleClick={() => handleNextPrevClick(3)}
           active={active}
-          component={<Map location={location} zoomLevel={17}/>}
+          component={<Checkout handleNextPrevClick={handleNextPrevClick} zoomLevel={17}/>}
         />
         <CDBStep
           id={4}

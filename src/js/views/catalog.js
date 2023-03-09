@@ -21,6 +21,7 @@ export const Catalog = () => {
   //}
   useEffect(() => {
     actions.getFoods()
+    actions.foodsListAddApi()
   }, []);
 
   const pizzaArray = store.foods.filter(food => food.type == "Pizza");
@@ -29,52 +30,53 @@ export const Catalog = () => {
   const dessertArray = store.foods.filter(food => food.type == "Postres");
 
   return (<div>
-    <div className="container-fluid categories">
-      <button className="foodButtonCat m-2">
-        <img className="icon me-2" src="https://cdn-icons-png.flaticon.com/512/6978/6978281.png"></img>
-        <span>Todo</span>
-      </button>
-      <button className="foodButtonCat m-2">
-        <img className="icon me-2" src="https://cdn-icons-png.flaticon.com/512/6978/6978281.png"></img>
-        <span>Pizzas</span>
-      </button>
-      <button className="foodButtonCat m-2">
-        <img className="icon me-2" src="https://cdn-icons-png.flaticon.com/512/1332/1332168.png"></img>
-        <span>Hamburguesas</span>
-      </button>
-      <button className="foodButtonCat m-2">
-        <img className="icon me-2" src="https://cdn-icons-png.flaticon.com/512/2738/2738730.png"></img>
-        <span>Bebidas</span>
-      </button>
-      <button className="foodButtonCat m-2">
-        <img className="icon me-2" src="https://cdn-icons-png.flaticon.com/512/3173/3173443.png"></img>
-        <span>Postres</span>
-      </button>
-    </div>
-    <div>
-      <h1 className="text-center">Pizzas</h1>
-      <div className="d-flex row justify-content-center">
-      {pizzaArray.map((food, index)=>{
-        return <CardCatalog key={food.id} item={food}/>
-      })}
-    </div>    
-      <h1 className="text-center">Hamburguesas</h1>
-      <div className="d-flex row justify-content-center">
-      {burguerArray.map((food, index)=>{
-        return <CardCatalog key={food.id} item={food}/>
-      })}
-    </div>
-      <h1 className="text-center">Bebidas</h1>
-      <div className="d-flex row justify-content-center">
-      {drinksArray.map((food, index)=>{
-        return <CardCatalog key={food.id} item={food}/>
-      })}
-    </div>
-      <h1 className="text-center">Postres</h1>
-      <div className="d-flex row justify-content-center">
-      {dessertArray.map((food, index)=>{
-        return <CardCatalog key={food.id} item={food}/>
-      })}
-    </div>
-  </div>)
-};
+            <div className="container-fluid categories">
+              <button className="foodButtonCat m-2">
+                <img className="icon me-2" src="https://cdn-icons-png.flaticon.com/512/6978/6978281.png"></img>
+                <span>Todo</span>
+              </button>
+              <button className="foodButtonCat m-2">
+                <img className="icon me-2" src="https://cdn-icons-png.flaticon.com/512/6978/6978281.png"></img>
+                <span>Pizzas</span>
+              </button>
+              <button className="foodButtonCat m-2">
+                <img className="icon me-2" src="https://cdn-icons-png.flaticon.com/512/1332/1332168.png"></img>
+                <span>Hamburguesas</span>
+              </button>
+              <button className="foodButtonCat m-2">
+                <img className="icon me-2" src="https://cdn-icons-png.flaticon.com/512/2738/2738730.png"></img>
+                <span>Bebidas</span>
+              </button>
+              <button className="foodButtonCat m-2">
+                <img className="icon me-2" src="https://cdn-icons-png.flaticon.com/512/3173/3173443.png"></img>
+                <span>Postres</span>
+              </button>
+            </div>
+            <div>
+              <h1 className="text-center">Pizzas</h1>
+              <div className="d-flex row justify-content-center">
+                {pizzaArray.map((food, index) => {
+                  return <CardCatalog key={food.id} item={food} />
+                })}
+              </div>
+              <h1 className="text-center">Hamburguesas</h1>
+              <div className="d-flex row justify-content-center">
+                {burguerArray.map((food, index) => {
+                  return <CardCatalog key={food.id} item={food} />
+                })}
+              </div>
+              <h1 className="text-center">Bebidas</h1>
+              <div className="d-flex row justify-content-center">
+                {drinksArray.map((food, index) => {
+                  return <CardCatalog key={food.id} item={food} />
+                })}
+              </div>
+              <h1 className="text-center">Postres</h1>
+              <div className="d-flex row justify-content-center">
+                {dessertArray.map((food, index) => {
+                  return <CardCatalog key={food.id} item={food} />
+                })}
+              </div>
+            </div>
+          </div>
+)};

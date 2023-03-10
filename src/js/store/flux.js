@@ -336,7 +336,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					lineItems: items,
 					mode: 'payment',
 					successUrl: 'http://localhost:3000/resumencompra',
-					cancelUrl: 'http://localhost:3000/?canceled',
+					cancelUrl: 'http://localhost:3000/pagocancelado',
 				})
 			},
 

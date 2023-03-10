@@ -13,6 +13,7 @@ import { Catalog } from "./views/catalog";
 import { LogReg } from "./views/login_register";
 import { ShopCart } from "./views/shop-cart";
 import { SuccessPage } from "./views/resumencompra";
+import { CancelPage } from "./views/pagocancelado";
 
 //create your first component
 const Layout = () => {
@@ -30,6 +31,7 @@ const Layout = () => {
 						<Route path="/demo" element={<Demo />} />
 						<Route path="/catalog" element={<Catalog />} />
 						<Route path="/resumencompra" element={<SuccessPage />}/>
+						<Route path="/pagocancelado" element={<CancelPage />}/>
 						<Route path="/shop-cart" element={<ShopCart />} />
 						<Route path="/single/:theid" element={<Single />} />
 						<Route path="/login_register" element={<LogReg />}/>

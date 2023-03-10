@@ -22,6 +22,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			cart: [],
 			cartAPI: [],
+      shoppingReceipt: {
+        products_cart: [],
+        location_customer: '',
+      },
 			userList: [
 				{
 					username: "admin1@gmail.com",
@@ -270,6 +274,9 @@ const getState = ({ getStore, getActions, setStore }) => {
         const store = getStore();
         const add = store.foods.find((item) => item.id === id);
 	  },
+    addDeliveryLoc: (location) => {
+      setStore({shoppingReceipt : {location_customer : location} });
+    },
 
 			foodsListAddApi: async () => {
 				const store = getStore();
@@ -304,7 +311,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const productSearch = await stripe.products.search({ query: `name~"${comida.name}"` });
 					auxCart.push({ price: productSearch.data[0].default_price, quantity: comida.quantity })
 				});
-				setStore({ cartAPI: auxCart, cart: []})
+				setStore({ cartAPI: auxCart, cart: [], shoppingReceipt: {products_cart: auxCart}})
 				
 			},
 

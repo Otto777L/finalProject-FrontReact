@@ -13,12 +13,23 @@ export const Map = ({ location, zoomLevel, handleNextPrevClick }) => {
   const {store, actions} = useContext(Context);
   const [show, setShow] = useState(false);
   const target = useRef(null);  
+  const [localLocation, setLocalLocation] = useState("");
+  const [customLoc, setCustomLoc] = useState("");
+
+  const handleKeyDown = (event) => {    
+      setLocalLocation(event.target.value);
+      console.log(localLocation);    
+  };
+
+  const handleCustomLoc = (event) => {
+    setCustomLoc(event.target.value);
+  };
 
   return <div>
   <div className="d-flex text-center row justify-content-center">  
     <h1 className="m-3">Selecciona una de las opciones para tu dirección de entrega:</h1>
     <label className="inp w-50" htmlFor="inp">
-      <input placeholder="" id="inp" type="text"/>
+      <input placeholder="" id="inp" type="text" onChange={handleCustomLoc} value={customLoc} onKeyDown={handleKeyDown}/>
       <span className="label ms-2">Indica tu dirección de entrega</span>
       <span className="focus-bg"></span>
     </label>
@@ -50,9 +61,7 @@ export const Map = ({ location, zoomLevel, handleNextPrevClick }) => {
           </div>
         )}
       </Overlay>
-
-
-    <button className="shopButton m-3 w-25">Si</button>
+    <button className="shopButton m-3 w-25" onClick={() => {setCustomLoc(""), setLocalLocation("Av. Andres Bello")}}>Si</button>
     <div className="leaflet-container">
       <MapContainer center={[10.495607466710284, -66.84886393485347]} zoom={120} scrollWheelZoom={false}>
         <TileLayer
@@ -76,7 +85,15 @@ export const Map = ({ location, zoomLevel, handleNextPrevClick }) => {
     </div>
       <div className='d-flex flex-row justify-content-center'>
         <button className="shopButton mt-3 me-3" onClick={() => handleNextPrevClick(1)}>Anterior</button>
-        <button className="shopButton mt-3" onClick={() => handleNextPrevClick(3)}>Siguiente</button>
+        <button className="shopButton mt-3" onClick={() => {
+          if (localLocation != '') {
+            handleNextPrevClick(3); 
+            actions.addDeliveryLoc(localLocation);
+            console.log(store.shoppingReceipt);
+          } else {
+            alert("Agrega una dirección");
+          }
+          }}>Siguiente</button>
       </div>
     </div>
     </div>

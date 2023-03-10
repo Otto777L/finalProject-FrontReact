@@ -14,7 +14,7 @@ export const CardCatalog = ({item}) => {
         <div className="card-body d-flex justify-content-between">
           <div className="">
             <h5 className="card-title">{item.name}</h5>
-            <p className="card-text">{item.default_price}</p>
+            <p className="card-text">{item.default_price_data.unit_amount/100}$</p>
           </div>
           <div className="">
             <i className="fa-solid fa-plus" onClick={() => actions.addToCart(item)}></i>

@@ -12,7 +12,7 @@ const stripePromise = loadStripe('pk_test_51Mj0qaDYy6AFzbjNe1iUedNDXTIvnmSlb994Z
 
 
 
-export function Checkout() {
+export function Checkout({handleNextPrevClick}) {
   const { store, actions } = useContext(Context)
   const navigate = useNavigate();
 
@@ -21,8 +21,8 @@ export function Checkout() {
   }, []);
 
   return (
-    <div lassName="container d-flex aling-items-center">
-      <h2 className="text-center">Haz click para acceder a Stripe, Inc.</h2>
+    <div>
+      <h2 className="text-center m-3">Haz click para acceder a Stripe, Inc.</h2>
       <div className="container d-flex justify-content-center aling-items-center" style={{ height: '400px', width: '500px', borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%", backgroundColor: '#FFF8D9' }}>
 
         <div className="btn" role="link" onClick={(e) => {
@@ -56,9 +56,11 @@ export function Checkout() {
             style={{ height: "400px", aspectRatio: 1 / 1 }}
           >
           </Player>
-        </div>
-
+        </div>        
       </div>
+      <div className="d-flex justify-content-center">
+        <button className="shopButton mt-3 me-3" onClick={() => handleNextPrevClick(2)}>Anterior</button>
+      </div>            
     </div>
 
   );

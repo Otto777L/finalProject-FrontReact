@@ -3,11 +3,14 @@ import { Navbar } from "../component/navbar";
 import "../../styles/catalog.css";
 import { CardCatalog } from "../component/CardCatalog";
 import { Context } from "../store/appContext";
+import { SectionProducts } from "../component/product-section";
 
 export const Catalog = () => {
 
   //const [foods, setFoods] = useState([]);
-  const { store, actions } = useContext(Context);
+  const {store, actions} = useContext(Context);
+  const [categorySelected, setCategorySelected] = useState("All");
+  const [auxArrayProduct, setAuxArrayProduct] = useState([]);
 
   /*const getFoods = () => {// agregar la info desde el store cuando se tenga cableado, esta funcion llena el objeto foods que se recorre mas abajo
     /*fetch("https://swapi.dev/api/planets/")
@@ -30,53 +33,47 @@ export const Catalog = () => {
   const dessertArray = store.foods.filter(food => food.type == "Postres");
 
   return (<div>
-            <div className="container-fluid categories">
-              <button className="foodButtonCat m-2">
-                <img className="icon me-2" src="https://cdn-icons-png.flaticon.com/512/6978/6978281.png"></img>
-                <span>Todo</span>
-              </button>
-              <button className="foodButtonCat m-2">
-                <img className="icon me-2" src="https://cdn-icons-png.flaticon.com/512/6978/6978281.png"></img>
-                <span>Pizzas</span>
-              </button>
-              <button className="foodButtonCat m-2">
-                <img className="icon me-2" src="https://cdn-icons-png.flaticon.com/512/1332/1332168.png"></img>
-                <span>Hamburguesas</span>
-              </button>
-              <button className="foodButtonCat m-2">
-                <img className="icon me-2" src="https://cdn-icons-png.flaticon.com/512/2738/2738730.png"></img>
-                <span>Bebidas</span>
-              </button>
-              <button className="foodButtonCat m-2">
-                <img className="icon me-2" src="https://cdn-icons-png.flaticon.com/512/3173/3173443.png"></img>
-                <span>Postres</span>
-              </button>
-            </div>
-            <div>
-              <h1 className="text-center">Pizzas</h1>
-              <div className="d-flex row justify-content-center">
-                {pizzaArray.map((food, index) => {
-                  return <CardCatalog key={food.id} item={food} />
-                })}
-              </div>
-              <h1 className="text-center">Hamburguesas</h1>
-              <div className="d-flex row justify-content-center">
-                {burguerArray.map((food, index) => {
-                  return <CardCatalog key={food.id} item={food} />
-                })}
-              </div>
-              <h1 className="text-center">Bebidas</h1>
-              <div className="d-flex row justify-content-center">
-                {drinksArray.map((food, index) => {
-                  return <CardCatalog key={food.id} item={food} />
-                })}
-              </div>
-              <h1 className="text-center">Postres</h1>
-              <div className="d-flex row justify-content-center">
-                {dessertArray.map((food, index) => {
-                  return <CardCatalog key={food.id} item={food} />
-                })}
-              </div>
-            </div>
-          </div>
-)};
+    <div className="container-fluid categories">
+      <button className="foodButtonCat m-2" onClick={() => {setCategorySelected("All")}}>
+        <img className="icon me-2" src="https://cdn-icons-png.flaticon.com/512/6978/6978281.png"></img>
+        <span>Todo</span>
+      </button>
+      <button className="foodButtonCat m-2" onClick={() => {setCategorySelected("Pizzas"); setAuxArrayProduct(pizzaArray)}}>
+        <img className="icon me-2" src="https://cdn-icons-png.flaticon.com/512/6978/6978281.png"></img>
+        <span>Pizzas</span>
+      </button>
+      <button className="foodButtonCat m-2" onClick={() => {setCategorySelected("Hamburguesas"); setAuxArrayProduct(burguerArray)}}>
+        <img className="icon me-2" src="https://cdn-icons-png.flaticon.com/512/1332/1332168.png"></img>
+        <span>Hamburguesas</span>
+      </button>
+      <button className="foodButtonCat m-2" onClick={() => {setCategorySelected("Bebidas"); setAuxArrayProduct(drinksArray)}}>
+        <img className="icon me-2" src="https://cdn-icons-png.flaticon.com/512/2738/2738730.png"></img>
+        <span>Bebidas</span>
+      </button>
+      <button className="foodButtonCat m-2" onClick={() => {setCategorySelected("Postres"); setAuxArrayProduct(dessertArray)}}>
+        <img className="icon me-2" src="https://cdn-icons-png.flaticon.com/512/3173/3173443.png"></img>
+        <span>Postres</span>
+      </button>
+    </div>
+    {categorySelected == "All" ?
+      <div>        
+        <div>
+          <SectionProducts category="Pizzas" productArray={pizzaArray}></SectionProducts>
+        </div>   
+        <div>
+          <SectionProducts category="Hamburguesas" productArray={burguerArray}></SectionProducts>
+        </div>   
+        <div>
+          <SectionProducts category="Bebidas" productArray={drinksArray}></SectionProducts>
+        </div>   
+        <div>
+          <SectionProducts category="Postres" productArray={dessertArray}></SectionProducts>
+        </div>
+      </div>
+    : 
+    <div>
+      <SectionProducts category={categorySelected} productArray={auxArrayProduct}></SectionProducts>
+    </div>
+    } 
+		</div>)
+};

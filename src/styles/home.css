@@ -96,3 +96,9 @@
     color: #fff;
    }
 
+   .card-number {
+    text-decoration: none;
+   }
+   .card-number:hover {
+    text-decoration: none;
+   }

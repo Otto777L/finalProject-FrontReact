@@ -4,8 +4,8 @@ import Modal from 'react-bootstrap/Modal';
 import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
-import Swal from 'sweetalert2';
 import "../../styles/home.css";
+import Swal from 'sweetalert2';
 
 
 

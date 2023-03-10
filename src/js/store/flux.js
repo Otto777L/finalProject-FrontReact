@@ -1,64 +1,65 @@
 const getState = ({ getStore, getActions, setStore }) => {
-  return {
-    store: {
-      demo: [
-        {
-          title: "FIRST",
-          background: "white",
-          initial: "white",
-        },
-        {
-          title: "SECOND",
-          background: "white",
-          initial: "white",
-        },
-      ],
-      foods: [],
-      TYPES: {
-        pizza: "Pizza",
-        burguer: "Hamburguesas",
-        drinks: "Bebidas",
-        dessert: "Postres",
-      },
-      cart: [],
-      userList: [
-        {
-          username: "admin1@gmail.com",
-          password: "admin1@1",
-          firstName: "admin1",
-          lastName: "admin1",
-          adresses: {},
-        },
-        {
-          username: "admin2@gmail.com",
-          password: "admin2@2",
-          firstName: "admin2",
-          lastName: "admin2",
-          adresses: {},
-        },
-      ],
-      currentUser: undefined,
-    },
-    actions: {
-      // Use getActions to call a function within a fuction
-      exampleFunction: () => {
-        getActions().changeColor(0, "green");
-      },
-      loadSomeData: () => {
-        /**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-      },
-      changeColor: (index, color) => {
-        //get the store
-        const store = getStore();
+	return {
+		store: {
+			demo: [
+				{
+					title: "FIRST",
+					background: "white",
+					initial: "white",
+				},
+				{
+					title: "SECOND",
+					background: "white",
+					initial: "white",
+				},
+			],
+			foods: [],
+			TYPES: {
+				pizza: "Pizza",
+				burguer: "Hamburguesas",
+				drinks: "Bebidas",
+				dessert: "Postres",
+			},
+			cart: [],
+			cartAPI: [],
+			userList: [
+				{
+					username: "admin1@gmail.com",
+					password: "admin1@1",
+					firstName: "admin1",
+					lastName: "admin1",
+					adresses: {},
+				},
+				{
+					username: "admin2@gmail.com",
+					password: "admin2@2",
+					firstName: "admin2",
+					lastName: "admin2",
+					adresses: {},
+				},
+			],
+			currentUser: undefined,
+		},
+		actions: {
+			// Use getActions to call a function within a fuction
+			exampleFunction: () => {
+				getActions().changeColor(0, "green");
+			},
+			loadSomeData: () => {
+				/**
+							fetch().then().then(data => setStore({ "foo": data.bar }))
+						*/
+			},
+			changeColor: (index, color) => {
+				//get the store
+				const store = getStore();
 
-        //we have to loop the entire demo array to look for the respective index
-        //and change its color
-        const demo = store.demo.map((elm, i) => {
-          if (i === index) elm.background = color;
-          return elm;
-        });
+				//we have to loop the entire demo array to look for the respective index
+				//and change its color
+				const demo = store.demo.map((elm, i) => {
+					if (i === index) elm.background = color;
+					return elm;
+				});
 
         //reset the global store
         setStore({ demo: demo });
@@ -268,76 +269,64 @@ const getState = ({ getStore, getActions, setStore }) => {
       addFoodtoCart: (id) => {
         const store = getStore();
         const add = store.foods.find((item) => item.id === id);
+	  },
 
-        setStore({ foodsUser: [...foodsUser, add] });
-      },
-      rmvFoodtoCart: (id) => {
-        const store = getStore();
-        const rmv = store.foodsUser.filter((item) => item.id !== id);
-        setStore({ foodsUser: [rmv] });
-      },
+			foodsListAddApi: async () => {
+				const store = getStore();
+				const stripe = require("stripe")("sk_test_51Mj0qaDYy6AFzbjNNFCR94y6ODRmOGgfniCC1oGNsNRwUcKSasJtjtuKspeiEOeNqmN3MdirkltJO2dvw0fdru7b00riId0U45");
 
-      foodsUserListAddApi: async () => {
-        const store = getStore();
-        const stripe = require("stripe")(
-          "sk_test_51Mj0qaDYy6AFzbjNNFCR94y6ODRmOGgfniCC1oGNsNRwUcKSasJtjtuKspeiEOeNqmN3MdirkltJO2dvw0fdru7b00riId0U45"
-        );
+				const productList = await stripe.products.list({
+					active: true,
+					limit: 50,
+				});
+				console.log(productList)
 
-        const productList = await stripe.products.list({
-          active: true,
-          limit: 50,
-        });
+				const foodData = await store.foods.map(async (comida) => {
+					if (productList.data.length < 1 && store.foods.length > 0) {
+						const product = await stripe.products.create({
+							name: comida.name,
+							id: comida.id,
+							images: comida.images,
+							default_price_data: comida.default_price_data,
+						});
+					} // else if() {AQUI DEBERIA HABER UNA LOGICA POR SI EL ADMINISTRADOR AGREGA PRODUCTOS}
+				});
 
-        const foodData = await store.foodsUser.map(async (comida) => {
-          if (productList.data.length < 1 && store.foodsUser.length > 0) {
-            const product = await stripe.products.create({
-              name: comida.name,
-              id: comida.id,
-              images: comida.images,
-              default_price_data: comida.default_price_data,
-            });
-          }
-        });
-      },
+			},
 
-      addUser: (e) => {
-        const store = getStore();
-        e.preventDefault();
+			prepareItemstoCheckout: async (stripePromise) => {
+				const store = getStore();
+				const actions = getActions();
+				const stripe = require('stripe')('sk_test_51Mj0qaDYy6AFzbjNNFCR94y6ODRmOGgfniCC1oGNsNRwUcKSasJtjtuKspeiEOeNqmN3MdirkltJO2dvw0fdru7b00riId0U45');
 
-        const toCompare = {
-          username: e.target.elements.username.value,
-        };
+				let auxCart = []
+				const foodCart = await store.cart.map(async (comida) => {
+					const productSearch = await stripe.products.search({ query: `name~"${comida.name}"` });
+					auxCart.push({ price: productSearch.data[0].default_price, quantity: comida.quantity })
+				});
+				setStore({ cartAPI: auxCart, cart: []})
+				
+			},
 
-        const userExist = store.userList.find(
-          (user) => user.username === toCompare.username
-        );
+			checkOutStripe: async (productos, stripePromise) => {
+				let items = productos
+				console.log(productos)
+				const stripe = await stripePromise;
+				const { error } = await stripe.redirectToCheckout({
+					lineItems: items,
+					mode: 'payment',
+					successUrl: 'http://localhost:3000/resumencompra',
+					cancelUrl: 'http://localhost:3000/?canceled',
+				})
+			},
 
-        if (userExist) {
-          return false;
-        } else {
-          let newUser = [
-            ...store.userList,
-            {
-              username: e.target.elements.username.value,
-              password: e.target.elements.password.value,
-              firstName: "",
-              lastName: "",
-              adresses: {},
-            },
-          ];
-          setStore({ userList: newUser });
-          return true;
-        }
-      },
+			addUser: (e) => {
+				const store = getStore();
+				e.preventDefault();
 
-      handleLogin: (e) => {
-        const store = getStore();
-        e.preventDefault();
-
-        const toCompare = {
-          username: e.target.elements.username.value,
-          password: e.target.elements.password.value,
-        };
+				const toCompare = {
+					username: e.target.elements.username.value,
+				};
 
         const userExist = store.userList.find((user) => {
           if (
@@ -359,10 +348,33 @@ const getState = ({ getStore, getActions, setStore }) => {
 		localStorage.setItem("isLogged",false);
         setStore({ currentUser: undefined });
 
-        return true;
-      },
-    },
-  };
+				const toCompare = {
+					username: e.target.elements.username.value,
+					password: e.target.elements.password.value,
+				};
+
+				const userExist = store.userList.find((user) => {
+					if (
+						user.username === toCompare.username &&
+						user.password === toCompare.password
+					) {
+						setStore({ currentUser: user });
+						return true;
+					}
+					return false;
+				});
+				return userExist;
+			},
+
+			handleLogout: (e) => {
+				const store = getStore();
+				e.preventDefault();
+				setStore({ currentUser: undefined });
+
+				return true;
+			},
+		},
+	};
 };
 
 export default getState;

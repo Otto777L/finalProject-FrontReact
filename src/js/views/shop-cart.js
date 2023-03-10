@@ -1,14 +1,15 @@
-import React, {useState,useEffect, useContext} from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Navbar } from "../component/navbar";
 import "../../styles/catalog.css";
 import { Context } from "../store/appContext";
 import { Map } from "../component/Map";
 import { CDBStepper, CDBStep, CDBInput, CDBBtn, CDBContainer } from "cdbreact";
 import { ProductList } from "../component/product-list";
+import { Checkout } from "../component/metodoPago";
 
-export const ShopCart = () => { 
+export const ShopCart = () => {
 
-    const [active, setActive] = useState(1);
+  const [active, setActive] = useState(1);
 
     let location = {
       lat: 10.495607466710284,
@@ -22,7 +23,7 @@ export const ShopCart = () => {
 
   const handleNextPrevClick = a => setActive(a);
   return (<>
-      <CDBStepper steps={[4]}>
+      <CDBStepper steps={[3]}>
         <CDBStep
           id={1}
           icon="pencil-alt"
@@ -45,15 +46,7 @@ export const ShopCart = () => {
           name="Selecciona tu metodo de pago"
           handleClick={() => handleNextPrevClick(3)}
           active={active}
-          component={<Map location={location} zoomLevel={17}/>}
-        />
-        <CDBStep
-          id={4}
-          icon="check"
-          name="Resumen de compra"
-          handleClick={() => handleNextPrevClick(4)}
-          active={active}
-          component={<Map location={location} zoomLevel={17}/>}
+          component={<Checkout handleNextPrevClick={handleNextPrevClick} zoomLevel={17} />}
         />
       </CDBStepper>
       <div className="row align-items-center">            

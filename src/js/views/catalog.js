@@ -1,4 +1,4 @@
-import React, {useState,useEffect, useContext} from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Navbar } from "../component/navbar";
 import "../../styles/catalog.css";
 import { CardCatalog } from "../component/CardCatalog";
@@ -13,18 +13,19 @@ export const Catalog = () => {
   const [auxArrayProduct, setAuxArrayProduct] = useState([]);
 
   /*const getFoods = () => {// agregar la info desde el store cuando se tenga cableado, esta funcion llena el objeto foods que se recorre mas abajo
-		/*fetch("https://swapi.dev/api/planets/")
-		.then((response)=> {
-			return response.json()
-		}).then((responseJSON)=> {
-			setFoods(responseJSON.results);
-		})*/
-    //setFoods([{id:1, name: "Pizza", cost: 12, img: "https://static.tnn.in/photo/msid-95377151,imgsize-491555,width-100,height-200,resizemode-75/95377151.jpg"}]);
-    //Evaluar como calcular la distancia para el tiempo de entrega con la api de ubicacion
-	//}
-  useEffect(()=>{		
+    /*fetch("https://swapi.dev/api/planets/")
+    .then((response)=> {
+      return response.json()
+    }).then((responseJSON)=> {
+      setFoods(responseJSON.results);
+    })*/
+  //setFoods([{id:1, name: "Pizza", cost: 12, img: "https://static.tnn.in/photo/msid-95377151,imgsize-491555,width-100,height-200,resizemode-75/95377151.jpg"}]);
+  //Evaluar como calcular la distancia para el tiempo de entrega con la api de ubicacion
+  //}
+  useEffect(() => {
     actions.getFoods()
-    }, []);
+    actions.foodsListAddApi()
+  }, []);
 
   const pizzaArray = store.foods.filter(food => food.type == "Pizza");
   const burguerArray = store.foods.filter(food => food.type == "Hamburguesas");

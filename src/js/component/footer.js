@@ -13,16 +13,16 @@ export const Footer = () => (
 				</ul>
 			</div>
 
-			<div className="col-md-5 offset-md-1 mb-3">
-				<form>
+			<div className="col-md-5 offset-md-1 mb-3 d-flex justify-content-center">
+				<div>
 					<h5>Suscríbete a nuestro newsletter</h5>
 					<p>Recibe las mejores ofertas y cupones cada mes.</p>
 					<div className="d-flex flex-column flex-sm-row w-100 gap-2">
 						<label htmlFor="newsletter1" className="visually-hidden">Correo electrónico</label>
 						<input id="newsletter1" type="text" className="form-control" placeholder="Correo electrónico"/>
-							<button className="btn btn-danger" type="button">Suscríbete</button>
+							<button className="shopButton" type="button">Suscríbete</button>
 					</div>
-				</form>
+				</div>
 			</div>
 		</div>
 

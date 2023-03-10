@@ -34,7 +34,7 @@ export const ShopCart = () => {
         />
         <CDBStep
           id={2}
-          icon="info-circle"
+          icon="map"
           name="Selecciona tu dirección de entrega"
           handleClick={() => handleNextPrevClick(2)}
           active={active}
@@ -55,3 +55,7 @@ export const ShopCart = () => {
   </>
   );
 }
+
+
+
+

@@ -68,3 +68,93 @@
    .foodButtonCat:hover::before {
     transform: translate3d(100%, 0, 0);
    }
+
+   .add-button {
+    position: relative;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+    transition: filter 250ms;
+    user-select: none;
+    touch-action: manipulation;
+   }
+   
+   .shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: hsl(0deg 0% 0% / 0.25);
+    will-change: transform;
+    transform: translateY(2px);
+    transition: transform
+       600ms
+       cubic-bezier(.3, .7, .4, 1);
+   }
+   
+   .edge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: linear-gradient(
+       to left,
+       #5a1202,
+       #aa2709,
+       #bd2c0b,
+       #961e03
+     );
+   }
+   
+   .front {
+    display: block;
+    position: relative;
+    padding: 5px 14px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    color: white;
+    background: #eb441e;
+    will-change: transform;
+    transform: translateY(-4px);
+    transition: transform
+       600ms
+       cubic-bezier(.3, .7, .4, 1);
+   }
+   
+   .add-button:hover {
+    filter: brightness(110%);
+   }
+   
+   .add-button:hover .front {
+    transform: translateY(-6px);
+    transition: transform
+       250ms
+       cubic-bezier(.3, .7, .4, 1.5);
+   }
+   
+   .add-button:active .front {
+    transform: translateY(-2px);
+    transition: transform 34ms;
+   }
+   
+   .add-button:hover .shadow {
+    transform: translateY(4px);
+    transition: transform
+       250ms
+       cubic-bezier(.3, .7, .4, 1.5);
+   }
+   
+   .add-button:active .shadow {
+    transform: translateY(1px);
+    transition: transform 34ms;
+   }
+   
+   .add-button:focus:not(:focus-visible) {
+    outline: none;
+   }

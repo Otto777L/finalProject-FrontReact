@@ -17,7 +17,13 @@ export const CardCatalog = ({item}) => {
             <p className="card-text">{item.default_price_data.unit_amount/100}$</p>
           </div>
           <div className="">
-            <i className="fa-solid fa-plus" onClick={() => actions.addToCart(item)}></i>
+          <button className="add-button" onClick={() => actions.addToCart(item)}>
+            <span class="shadow"></span>
+            <span class="edge"></span>
+            <span class="front text"> +
+            </span>
+          </button>
+            {/* <i className="fa-solid fa-plus" onClick={() => actions.addToCart(item)}></i> */}
           </div>
         </div>
       </div>

@@ -70,18 +70,6 @@ export const Map = ({ location, zoomLevel, handleNextPrevClick }) => {
         />
         <LocationPin/>
       </MapContainer>
-      {/* <div className="google-map">
-        <GoogleMapReact
-          bootstrapURLKeys={{ key: '' }}
-          defaultCenter={location}
-          defaultZoom={zoomLevel}
-        >
-          <LocationPin
-            lat={location.lat}
-            lng={location.lng}
-          />
-        </GoogleMapReact>
-      </div> */}
     </div>
       <div className='d-flex flex-row justify-content-center'>
         <button className="shopButton mt-3 me-3" onClick={() => handleNextPrevClick(1)}>Anterior</button>

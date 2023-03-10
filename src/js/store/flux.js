@@ -76,7 +76,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             id: 1,
             name: "Margarita",
             default_price_data: {
-              unit_amount: 1200,
+              unit_amount: 1000,
               currency: "usd",
             },
             quantity: 1,
@@ -89,7 +89,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             id: 2,
             name: "Napolitana",
             default_price_data: {
-              unit_amount: 1800,
+              unit_amount: 1500,
               currency: "usd",
             },
             quantity: 1,
@@ -102,7 +102,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             id: 3,
             name: "Primavera",
             default_price_data: {
-              unit_amount: 1800,
+              unit_amount: 1300,
               currency: "usd",
             },
             quantity: 1,
@@ -115,7 +115,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             id: 4,
             name: "Super Junkie",
             default_price_data: {
-              unit_amount: 3000,
+              unit_amount: 1600,
               currency: "usd",
             },
             quantity: 1,
@@ -125,10 +125,23 @@ const getState = ({ getStore, getActions, setStore }) => {
             ],
           },
           {
+            id: 14,
+            name: "Pizzeta Cucumber",
+            default_price_data: {
+              unit_amount: 1500,
+              currency: "usd",
+            },
+            quantity: 1,
+            type: store.TYPES.pizza,
+            images: [
+              "https://www.shutterstock.com/shutterstock/photos/89636020/display_1500/stock-photo-pizzete-home-baked-mini-pizzas-with-fresh-basil-on-wooden-background-italian-cuisine-symbolic-89636020.jpg",
+            ],
+          },
+          {
             id: 5,
             name: "La Jumbumbis",
             default_price_data: {
-              unit_amount: 3000,
+              unit_amount: 1800,
               currency: "usd",
             },
             quantity: 1,
@@ -141,7 +154,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             id: 6,
             name: "Pepsi",
             default_price_data: {
-              unit_amount: 3000,
+              unit_amount: 300,
               currency: "usd",
             },
             quantity: 1,
@@ -154,7 +167,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             id: 7,
             name: "Helado de vainilla",
             default_price_data: {
-              unit_amount: 3000,
+              unit_amount: 400,
               currency: "usd",
             },
             quantity: 1,
@@ -167,7 +180,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             id: 8,
             name: "Bigguer",
             default_price_data: {
-              unit_amount: 3000,
+              unit_amount: 1500,
               currency: "usd",
             },
             quantity: 1,
@@ -180,7 +193,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             id: 9,
             name: "Double Chicken",
             default_price_data: {
-              unit_amount: 3000,
+              unit_amount: 1300,
               currency: "usd",
             },
             quantity: 1,
@@ -193,7 +206,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             id: 10,
             name: "Coca-Cola",
             default_price_data: {
-              unit_amount: 3000,
+              unit_amount: 300,
               currency: "usd",
             },
             quantity: 1,
@@ -206,7 +219,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             id: 11,
             name: "Nestea",
             default_price_data: {
-              unit_amount: 3000,
+              unit_amount: 200,
               currency: "usd",
             },
             quantity: 1,
@@ -219,7 +232,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             id: 12,
             name: "Cheese Cake",
             default_price_data: {
-              unit_amount: 3000,
+              unit_amount: 500,
               currency: "usd",
             },
             quantity: 1,
@@ -232,7 +245,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             id: 13,
             name: "Red Velvet",
             default_price_data: {
-              unit_amount: 3000,
+              unit_amount: 500,
               currency: "usd",
             },
             quantity: 1,
@@ -311,7 +324,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const productSearch = await stripe.products.search({ query: `name~"${comida.name}"` });
 					auxCart.push({ price: productSearch.data[0].default_price, quantity: comida.quantity })
 				});
-				setStore({ cartAPI: auxCart, cart: [], shoppingReceipt: {products_cart: auxCart}})
+				setStore({ cartAPI: auxCart, shoppingReceipt: {products_cart: auxCart}})
 				
 			},
 

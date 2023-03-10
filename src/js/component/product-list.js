@@ -8,7 +8,7 @@ export const ProductList = ({handleNextPrevClick}) => {
   const {store, actions} = useContext(Context);
 
   useEffect(()=>{		
-    console.log(store.cart);
+    // console.log(store.cart);
 	},[]);
 
   return (

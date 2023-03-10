@@ -21,20 +21,6 @@ const getState = ({ getStore, getActions, setStore }) => {
         dessert: "Postres",
       },
       cart: [],
-      features: [ // informacion para el pin de localizacion
-        {
-          "type": "Feature",
-          "properties": {
-            "PARK_ID": 960,
-            "NAME": "Bearbrook Skateboard Park",
-            "DESCRIPTIO": "Flat asphalt surface, 5 components"
-          },
-          "geometry": {
-            "type": "Point",
-            "coordinates": [10.495607466710284, -66.84886393485347]
-          }
-        }
-      ],
       userList: [
         {
           username: "admin1@gmail.com",

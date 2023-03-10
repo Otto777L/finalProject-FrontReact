@@ -1,42 +1,65 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect, useContext, useState, useRef } from 'react'
 import GoogleMapReact from 'google-map-react'
 import "../../styles/map.css";
 import { LocationPin } from './LocationPin';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Icon } from "leaflet";
 import { Context } from "../store/appContext";
+import { createPopper } from '@popperjs/core';
+import Overlay from 'react-bootstrap/Overlay';
 
 export const Map = ({ location, zoomLevel, handleNextPrevClick }) => { 
 
   const {store, actions} = useContext(Context);
+  const [show, setShow] = useState(false);
+  const target = useRef(null);  
 
-  const skater = new Icon({
-    iconUrl: "https://cdn-icons-png.flaticon.com/512/684/684908.png",
-    iconSize: [250, 250]
-  });
+  return <div>
+  <div className="d-flex text-center row justify-content-center">  
+    <h1 className="m-3">Selecciona una de las opciones para tu dirección de entrega:</h1>
+    <label className="inp w-50" htmlFor="inp">
+      <input placeholder="" id="inp" type="text"/>
+      <span className="label ms-2">Indica tu dirección de entrega</span>
+      <span className="focus-bg"></span>
+    </label>
+    <div className="d-flex flex-row justify-content-center">
+      <h3 className="mt-3">¿Quieres usar tu dirección actual?</h3>
+      <img src="https://cdn-icons-png.flaticon.com/512/9446/9446643.png" className="thumbnail-info ms-3" alt="..." ref={target} onClick={() => setShow(!show)}/>
+    </div>
+    <Overlay target={target.current} show={show} placement="right">{({
+          placement: _placement,
+          arrowProps: _arrowProps,
+          show: _show,
+          popper: _popper,
+          hasDoneInitialMeasure: _hasDoneInitialMeasure,
+          ...props
+        }) => (
+          <div
+            {...props}
+            style={{
+              position: 'absolute',
+              backgroundColor: '#eba83a',
+              padding: '2px 10px',
+              color: 'white',
+              borderRadius: 3,
+              marginLeft: '6px',
+              ...props.style,
+            }}
+          >
+            Haz click en el mapa para ver tu ubicación.
+          </div>
+        )}
+      </Overlay>
 
-  return <div className="container text-center mapDim d-flex row justify-content-center">
-  <div className="map">  
-    <h1>Indica tu dirección:</h1>
-    <div className="leaflet-container d-flex justify-content-center">
+
+    <button className="shopButton m-3 w-25">Si</button>
+    <div className="leaflet-container">
       <MapContainer center={[10.495607466710284, -66.84886393485347]} zoom={120} scrollWheelZoom={false}>
         <TileLayer
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
-        {store.features.map(park => (
-        <Marker
-          key={park.properties.PARK_ID}
-          position={[
-            park.geometry.coordinates[1],
-            park.geometry.coordinates[0]
-          ]}
-          onClick={() => {
-            setActivePark(park);
-          }}
-          icon={skater}
-        />
-        ))}
+        <LocationPin/>
       </MapContainer>
       {/* <div className="google-map">
         <GoogleMapReact

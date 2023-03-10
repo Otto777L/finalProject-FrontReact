@@ -12,8 +12,8 @@ export const ProductList = ({handleNextPrevClick}) => {
 	},[]);
 
   return (
-    <div className="container text-center">  
-    <h1>Modifica tu pedido:</h1>
+    <div className="container text-center"> 
+    {store.cart.length > 0 ?  <h1 className="m-3">Modifica tu pedido:</h1> : <h1 className="m-3">¡Agrega un producto a tu carrito!</h1>}     
       {store.cart.map((product, index)=>{
         return <div key={product.id} className="container d-flex flex-row justify-content-between product-item mt-2 border border-3 p-3 align-items-center">
           <img src={product.images[0]} className="thumbnail" alt="..."/>

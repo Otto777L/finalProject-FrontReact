@@ -291,6 +291,11 @@ const getState = ({ getStore, getActions, setStore }) => {
       setStore({shoppingReceipt : {location_customer : location} });
     },
 
+    deleteFromCart: (index) => {
+      const auxList = getStore().cart.filter((task, position) => position != index);
+      setStore({cart: auxList});
+    },
+
 			foodsListAddApi: async () => {
 				const store = getStore();
 				const stripe = require("stripe")("sk_test_51Mj0qaDYy6AFzbjNNFCR94y6ODRmOGgfniCC1oGNsNRwUcKSasJtjtuKspeiEOeNqmN3MdirkltJO2dvw0fdru7b00riId0U45");
@@ -324,8 +329,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const productSearch = await stripe.products.search({ query: `name~"${comida.name}"` });
 					auxCart.push({ price: productSearch.data[0].default_price, quantity: comida.quantity })
 				});
-				setStore({ cartAPI: auxCart, shoppingReceipt: {products_cart: auxCart}})
-				
+				setStore({ cartAPI: auxCart, shoppingReceipt: {...store.shoppingReceipt, products_cart: auxCart}})
+        console.log(store.shoppingReceipt);	       		
+
 			},
 
 			checkOutStripe: async (productos, stripePromise) => {
@@ -335,10 +341,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const { error } = await stripe.redirectToCheckout({
 					lineItems: items,
 					mode: 'payment',
-					successUrl: 'http://localhost:3000/resumencompra',
-					cancelUrl: 'http://localhost:3000/pagocancelado',
+					successUrl: 'https://3000-otto777l-finalprojectfr-rcfhg9llun5.ws-us90.gitpod.io//resumencompra',
+					cancelUrl: 'https://3000-otto777l-finalprojectfr-rcfhg9llun5.ws-us90.gitpod.io//pagocancelado',
 				})
 			},
+
+      // successUrl: 'http://localhost:3000/resumencompra',
+			// 		cancelUrl: 'http://localhost:3000/pagocancelado',
 
 			addUser: (e) => {
 				const store = getStore();

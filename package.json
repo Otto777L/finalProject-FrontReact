@@ -11,7 +11,7 @@
 		"build": "webpack --config webpack.prod.js",
 		"deploy": "node deploy-to-github.js"
 	},
-	"proxy": "http://localhost:3000",
+	"proxy": "https://3000-otto777l-finalprojectfr-rcfhg9llun5.ws-us90.gitpod.io",
 	"author": {
 		"name": "Alejandro Sanchez",
 		"url": "http://alesanchezr.com/"

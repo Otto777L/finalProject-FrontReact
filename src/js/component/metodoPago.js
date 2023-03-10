@@ -17,7 +17,7 @@ export function Checkout({handleNextPrevClick}) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    actions.prepareItemstoCheckout(stripePromise)
+    actions.prepareItemstoCheckout(stripePromise);    
   }, []);
 
   return (

@@ -18,9 +18,9 @@ export const CardCatalog = ({item}) => {
           </div>
           <div className="">
           <button className="add-button" onClick={() => actions.addToCart(item)}>
-            <span class="shadow"></span>
-            <span class="edge"></span>
-            <span class="front text"> +
+            <span className="shadow"></span>
+            <span className="edge"></span>
+            <span className="front text"> +
             </span>
           </button>
             {/* <i className="fa-solid fa-plus" onClick={() => actions.addToCart(item)}></i> */}

@@ -280,82 +280,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			},
 
-
-
 			prepareItemstoCheckout: async (stripePromise) => {
 				const store = getStore();
 				const actions = getActions();
 				const stripe = require('stripe')('sk_test_51Mj0qaDYy6AFzbjNNFCR94y6ODRmOGgfniCC1oGNsNRwUcKSasJtjtuKspeiEOeNqmN3MdirkltJO2dvw0fdru7b00riId0U45');
 
-				// const productsAPI = await stripe.products.list({
-				// 	limit: 50,
-				//   });
-
 				let auxCart = []
 				const foodCart = await store.cart.map(async (comida) => {
 					const productSearch = await stripe.products.search({ query: `name~"${comida.name}"` });
-					// console.log(productSearch.data[0].default_price)
 					auxCart.push({ price: productSearch.data[0].default_price, quantity: comida.quantity })
 				});
-				// 	// const { error } = await stripe.redirectToCheckout({
-				// 	// 	line_items: [
-				// 	// 		{ price: productSearch.data.default_price, quantity: comida.quantity, currency: 'usd' },
-				// 	// 	],
-				// 	// 	mode: 'payment',
-				// 	// 	success_url: 'http://localhost:3000/?success',
-				// 	// 	cancel_url: 'http://localhost:3000/?canceled',
-				// 	// })
-				// }
-
-				// console.log(auxCart)
-				// actions.createCheckOut(auxCart)
-				// actions.checkOutStripe(auxCart, stripePromise) esta es la que vale
-
-				setStore({ cartAPI: auxCart})
-				console.log(store.cartAPI)
-
+				setStore({ cartAPI: auxCart, cart: []})
+				
 			},
 
-			// createCheckOut: async (productos) => {
-			// 	const stripe = require('stripe')('sk_test_51Mj0qaDYy6AFzbjNNFCR94y6ODRmOGgfniCC1oGNsNRwUcKSasJtjtuKspeiEOeNqmN3MdirkltJO2dvw0fdru7b00riId0U45');
-
-			// 	const session = await stripe.checkout.sessions.create({
-			// 		line_items: productos,
-			// 		mode: 'payment',
-			// 		success_url: 'http://localhost:3000/?success',
-			// 		cancel_url: 'http://localhost:3000/?canceled',
-			// 	})
-			// },
-
-			// funcion del checkout
 			checkOutStripe: async (productos, stripePromise) => {
 				let items = productos
 				console.log(productos)
 				const stripe = await stripePromise;
-				// console.log(items)
 				const { error } = await stripe.redirectToCheckout({
 					lineItems: items,
 					mode: 'payment',
-					successUrl: 'http://localhost:3000/?success',
+					successUrl: 'http://localhost:3000/resumencompra',
 					cancelUrl: 'http://localhost:3000/?canceled',
 				})
 			},
-
-			// checkOutStripe: async (productos, stripePromise) => {
-			// 	let items = productos
-			// 	const stripe = await stripePromise;
-			// 	console.log(items)
-			// 	const { error } = await stripe.redirectToCheckout({
-			// 		lineItems: [
-			// 			{ price: 'price_1MjWgnDYy6AFzbjN1bKbUVdX', quantity: 2 }, 
-			// 			{ price: "price_1MjWgnDYy6AFzbjNbJzpPZ61", quantity: 6 }],
-			// 		mode: 'payment',
-			// 		successUrl: 'http://localhost:3000/?success',
-			// 		cancelUrl: 'http://localhost:3000/?canceled',
-			// 	})
-
-			// },
-
 
 			addUser: (e) => {
 				const store = getStore();

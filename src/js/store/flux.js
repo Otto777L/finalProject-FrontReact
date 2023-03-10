@@ -348,25 +348,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 					username: e.target.elements.username.value,
 				};
 
-        const userExist = store.userList.find((user) => {
-          if (
-            user.username === toCompare.username &&
-            user.password === toCompare.password
-          ) {
-			localStorage.setItem("isLogged",true);
-            setStore({ currentUser: user });
-            return true;
-          }
-          return false;
-        });
-        return userExist;
-      },
+				const userExist = store.userList.find(
+					(user) => user.username === toCompare.username
+				);
 
-      handleLogout: (e) => {
-        const store = getStore();
-        e.preventDefault();
-		localStorage.setItem("isLogged",false);
-        setStore({ currentUser: undefined });
+				if (userExist) {
+					return false;
+				} else {
+					let newUser = [
+						...store.userList,
+						{
+							username: e.target.elements.username.value,
+							password: e.target.elements.password.value,
+							firstName: "",
+							lastName: "",
+							adresses: {},
+						},
+					];
+					setStore({ userList: newUser });
+					return true;
+				}
+			},
+
+
+      handleLogin: (e) => {
+				const store = getStore();
+				e.preventDefault();
 
 				const toCompare = {
 					username: e.target.elements.username.value,
@@ -378,6 +385,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						user.username === toCompare.username &&
 						user.password === toCompare.password
 					) {
+            localStorage.setItem("isLogged",true);
 						setStore({ currentUser: user });
 						return true;
 					}
@@ -389,6 +397,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			handleLogout: (e) => {
 				const store = getStore();
 				e.preventDefault();
+        localStorage.setItem("isLogged",false);
 				setStore({ currentUser: undefined });
 
 				return true;

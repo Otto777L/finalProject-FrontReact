@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Context } from "../store/appContext";
 import { Player } from '@lottiefiles/react-lottie-player';
 import Swal from 'sweetalert2'
+import { useNavigate } from "react-router-dom";
 import { loadStripe } from '@stripe/stripe-js';
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
@@ -13,6 +14,7 @@ const stripePromise = loadStripe('pk_test_51Mj0qaDYy6AFzbjNe1iUedNDXTIvnmSlb994Z
 
 export function Checkout() {
   const { store, actions } = useContext(Context)
+  const navigate = useNavigate();
 
   useEffect(() => {
     actions.prepareItemstoCheckout(stripePromise)
@@ -39,6 +41,7 @@ export function Checkout() {
                 text: 'Su pedido ha sido cancelado',
                 showConfirmButton: false,
               })
+              navigate('/pagocancelado')
             } else {
               actions.checkOutStripe(store.cartAPI, stripePromise)
             }

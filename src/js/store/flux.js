@@ -290,7 +290,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const productSearch = await stripe.products.search({ query: `name~"${comida.name}"` });
 					auxCart.push({ price: productSearch.data[0].default_price, quantity: comida.quantity })
 				});
-				setStore({ cartAPI: auxCart, cart: []})
+				setStore({ cartAPI: auxCart, cart: []}) //store.cart se debe hacer a vacio aqui o luego del resumen de compra??
 				
 			},
 
@@ -302,7 +302,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					lineItems: items,
 					mode: 'payment',
 					successUrl: 'http://localhost:3000/resumencompra',
-					cancelUrl: 'http://localhost:3000/?canceled',
+					cancelUrl: 'http://localhost:3000/pagocancelado',
 				})
 			},
 

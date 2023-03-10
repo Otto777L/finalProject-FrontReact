@@ -8,7 +8,7 @@ export const ProductList = ({handleNextPrevClick}) => {
   const {store, actions} = useContext(Context);
 
   useEffect(()=>{		
-    console.log(store.cart);
+    // console.log(store.cart);
 	},[]);
 
   return (
@@ -22,7 +22,7 @@ export const ProductList = ({handleNextPrevClick}) => {
             <div className="shopButton">
               <i className="fa-solid fa-minus" ></i>
             </div>
-            <h3 className="me-2">{product.qta}</h3>
+            <h3 className="me-2">{product.quantity}</h3>
             <div className="shopButton">
               <i className="fa-solid fa-plus" ></i>
             </div>

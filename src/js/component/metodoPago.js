@@ -1,30 +1,62 @@
-import React from 'react';
+import React, { useState, useEffect, useContext } from "react";
 import ReactDOM from 'react-dom';
+import { Context } from "../store/appContext";
+import { Player } from '@lottiefiles/react-lottie-player';
+import Swal from 'sweetalert2'
 import { loadStripe } from '@stripe/stripe-js';
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
 const stripePromise = loadStripe('pk_test_51Mj0qaDYy6AFzbjNe1iUedNDXTIvnmSlb994Zn0EeeYQFachKIIoC6vhNGaVgzQCodh6KzwKo2fQgDgV44tlCtYc00Tou4u7v7');
 
-export function MetodoPago() {
-    const handleClick = async (event) => {
-        // When the customer clicks on the button, redirect them to Checkout.
-        const stripe = await stripePromise;
-        const { error } = await stripe.redirectToCheckout({
-            lineItems: [{
-                price: '{{PRICE_ID}}', // Replace with the ID of your price
-                quantity: 1,
-            }],
-            mode: 'payment',
-            successUrl: 'https://example.com/success',
-            cancelUrl: 'https://example.com/cancel',
-        });
-        // If `redirectToCheckout` fails due to a browser or network
-        // error, display the localized error message to your customer
-        // using `error.message`.
-    };
-    return (
-        <button role="link" onClick={handleClick}>
-            Checkout
-        </button>
-    );
+
+
+
+export function Checkout() {
+  const { store, actions } = useContext(Context)
+
+  useEffect(() => {
+    actions.prepareItemstoCheckout(stripePromise)
+  }, []);
+
+  return (
+    <div lassName="container d-flex aling-items-center">
+      <h2 className="text-center">Haz click para acceder a Stripe, Inc.</h2>
+      <div className="container d-flex justify-content-center aling-items-center" style={{ height: '400px', width: '500px', borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%", backgroundColor: '#FFF8D9' }}>
+
+        <div className="btn" role="link" onClick={(e) => {
+          Swal.fire({
+            title: '¿Seguro?',
+            text: "Será redirigido a la plataforma de pagos de Stripe, Inc.",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#ec4924',
+            cancelButtonColor: '#BB371A',
+            confirmButtonText: '¡Sí, pagar!'
+          }).then((result) => {
+            if (!result.isConfirmed) {
+              Swal.fire({
+                title: '¡Cancelado!',
+                text: 'Su pedido ha sido cancelado',
+                showConfirmButton: false,
+              })
+            } else {
+              actions.checkOutStripe(store.cartAPI, stripePromise)
+            }
+          })
+
+        }}>
+          <Player
+            speed={0.75}
+            hover
+            loop
+            src="https://assets4.lottiefiles.com/packages/lf20_b3df6yqy.json"
+            style={{ height: "400px", aspectRatio: 1 / 1 }}
+          >
+          </Player>
+        </div>
+
+      </div>
+    </div>
+
+  );
 }

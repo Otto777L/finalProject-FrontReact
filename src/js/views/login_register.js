@@ -69,7 +69,7 @@ export function LogReg(log) {
                                         <input name="password" type={passwordShown ? "text" : "password"} className="form-control" id="floatingPassword" placeholder="Password" />
                                         <label htmlFor="floatingPassword">Contraseña</label>
                                     </div>
-                                    <label className="w-25 link-danger btn fw-bold input-group-text" onClick={togglePassword}>OJO</label>
+                                    <label className="w-25 link-danger btn fw-bold input-group-text" onClick={togglePassword}><i class="fa-solid fa-eye"></i></label>
                                 </div>
                                 <button className="shopButton" type="submit">Iniciar sesión</button>
                             </form>
@@ -113,7 +113,7 @@ export function LogReg(log) {
                                 <label htmlFor="floatingPassword">Contraseña</label>
                             </div>
                             <div className="form-floating w-100 my-1">
-                                <input name="confirmpassword" onChange={(e) => setConfirmPwd(e.target.value)} value={confirmPwd} className="form-control" placeholder="Verificar Contraseña" required />
+                                <input name="confirmpassword" type="password" onChange={(e) => setConfirmPwd(e.target.value)} value={confirmPwd} className="form-control" placeholder="Verificar Contraseña" required />
                                 <label>Verificar contraseña</label>
                             </div>
                             {pwd === confirmPwd ? <button className="shopButton" type="submit">Regístrate</button> : <button className="alert alert-danger" type="submit" disabled>Las contraseñas no coinciden</button>}

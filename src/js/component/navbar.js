@@ -25,13 +25,13 @@ export const Navbar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a className="nav-link active fw-bold topText" aria-current="page" href="#">Pedidos</a>
-            </li>
-            <li className="nav-item">
+            </li> */}
+            {/* <li className="nav-item">
               <a className="nav-link fw-bold topText" href="#">Entrega</a>
-            </li>
-            <li className="nav-item dropdown">
+            </li> */}
+            {/* <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle fw-bold topText" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Dirección
               </a>
@@ -41,7 +41,7 @@ export const Navbar = () => {
                 <li><hr className="dropdown-divider" /></li>
                 <li><a className="dropdown-item" href="#"> Dir Predeterminada</a></li>
               </ul>
-            </li>
+            </li> */}
           </ul>
         < LogReg log={isLogged}/>        
         {/* <button className="shopButton"  onClick={handleLogin}>Registrarse</button> */}      

@@ -27,7 +27,7 @@ export const SuccessPage = () => {
                     style={{ height: "400px", aspectRatio: 1 / 1 }}
                 >
                 </Player>
-            </div> : navigate('/resumencompra') //aqui ponemos el codigo esa page
+            </div> : navigate('/catalog') //aqui ponemos el codigo esa page
             }
         </>
     )

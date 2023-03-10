@@ -10,6 +10,7 @@ export const Navbar = () => {
 
   const handleLogin = () => {
     setIsLogged(!isLogged);
+    actions.deleteAllProducts()
   };
 
   return (
